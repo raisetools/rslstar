@@ -6,7 +6,7 @@ This repository contains an extension of _rsltc_ which supports the language con
 RSL* is an extension of RSL-SAL, which adds language constructs for generic specifications. 
 
 ## Tool support
-This version of _rsltc_ includes syntax and type checking for the language constructs of RSL*. In addition, the tool includes an _unfolder_, which unfolds a specification in RSl* with generic constructs to a specification within the RSL-SAL subset. 
+This version of _rsltc_ includes syntax and type checking for the language constructs of RSL*. In addition, the tool includes an _unfolder_, which unfolds a specification in RSL* with generic constructs to a specification within the RSL-SAL subset. 
 
 ## Development
 This version of _rsltc_ is currently under development and is provided as is.
@@ -23,10 +23,10 @@ This assumes that an executable `rsltc` file has been obtained.
 
 To type check an RSL specification
 ```
-rsltc <myRSLfile.rsl>
+rsltc myRSLfile.rsl
 ```
 
 To unfold (and type check) an RSL* specification containing generic constructs (results in myRSLfile.unf in the same directory)
 ```
-rsltc -unf <myRSLfile.rsl>
+rsltc -unf myRSLfile.rsl
 ```
