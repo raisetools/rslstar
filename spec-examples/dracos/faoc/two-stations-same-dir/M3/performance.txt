@@ -2,12 +2,6 @@ no_collide
 	12:55.33 time, 	284876 max_mem KB
 no_derail
 	12:59.17 time, 	284864 max_mem KB
-finish_reserve
-	21:21.28 time, 	252528 max_mem KB
-finish_switchlock
-	13:56.89 time, 	240200 max_mem KB
-deadlock_check
-	10:20.59 time, 	253008 max_mem KB
 cons_res_pos
 	12:35.78 time, 	277908 max_mem KB
 cons_locks_pos
@@ -48,3 +42,9 @@ cons_locks
 	13:43.74 time, 	284804 max_mem KB
 cons_sensor_pos
 	22:04.92 time, 	277860 max_mem KB
+finish_reserve
+	21:21.28 time, 	252528 max_mem KB
+finish_switchlock
+	13:56.89 time, 	240200 max_mem KB
+deadlock_check
+	10:20.59 time, 	253008 max_mem KB

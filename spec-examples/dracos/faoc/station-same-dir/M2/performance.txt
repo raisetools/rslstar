@@ -22,6 +22,10 @@ cons_connection_netswitchboxes
 	0:05.63 time, 	106428 max_mem KB
 cons_reservations_netswitchboxes
 	0:05.42 time, 	105396 max_mem KB
+cons_t_sb_res
+	2:56.63 time, 	5194608 max_mem KB
+cons_sb_t_res
+	2:45.75 time, 	5070848 max_mem KB
 cons_res_t1_sb
 	0:05.61 time, 	105412 max_mem KB
 cons_res_t2_sb
@@ -40,7 +44,4 @@ finish_switchlock
 	0:05.98 time, 	109488 max_mem KB
 deadlock_check
 	0:05.51 time, 	94816 max_mem KB
-cons_t_sb_res
-	2:56.63 time, 	5194608 max_mem KB
-cons_sb_t_res
-	2:45.75 time, 	5070848 max_mem KB
+

@@ -34,9 +34,3 @@ cons_locks
 	0:01.25 time, 	72304 max_mem KB
 cons_sensor_pos
 	0:01.27 time, 	66872 max_mem KB
-Command terminated by signal 9
-	10:27.98 time, 	30359816 max_mem KB
-Command exited with non-zero status 255
-	0:00.08 time, 	22764 max_mem KB
-Command terminated by signal 9
-	11:13.34 time, 	30248704 max_mem KB
