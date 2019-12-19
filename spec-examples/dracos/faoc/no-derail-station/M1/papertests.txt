@@ -1,0 +1,18 @@
+cons_pos_route
+	0:00.64 time, 	53868 max_mem KB
+cons_nextsb_switchboxes
+	0:00.59 time, 	53824 max_mem KB
+cons_nextsb_pos
+	0:00.60 time, 	54016 max_mem KB
+cons_connection_netswitchboxes
+	0:00.63 time, 	53888 max_mem KB
+cons_reservations_netswitchboxes
+	0:00.65 time, 	53852 max_mem KB
+cons_t_sb_res
+	0:00.67 time, 	53952 max_mem KB
+cons_sb_t_res
+	0:00.74 time, 	53968 max_mem KB
+cons_locks
+	0:00.62 time, 	53820 max_mem KB
+cons_sensor_pos
+	0:00.62 time, 	53860 max_mem KB

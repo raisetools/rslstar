@@ -1,0 +1,303 @@
+Base
+scheme M2 = extend Base with
+class
+  value
+    route[t : TrainID'] : Route,
+    switchboxes[t : TrainID'] : Switchboxes
+  axiom -- configured
+    route[t1] = [s1+>s2, s2+>s4, s4+>s5],
+    route[t2] = [s6+>s4, s4+>s3, s3+>s1],
+    switchboxes[t1] = [sb1+>sb2, sb2+>sb3, sb3+>sb4],
+    switchboxes[t2] = [sb3+>sb2, sb2+>sb1, sb1+>sb0]
+  transition_system
+    [TS]
+    variable
+      pos[t : TrainID'] : Position, 
+      nextSb[t : TrainID'] : SwitchboxID',
+      tReservations[t : TrainID'] : TReservation,
+      tLocks[t : TrainID'] : TLock, 
+
+      sbSensor[sb : SwitchboxID'] : SensorState,
+      sbReservations[sb : SwitchboxID'] : SbReservation,
+      sbLock[s : SwitchboxID'] : TrainID,
+      sbConnection[sb : SwitchboxID'] : Connection,
+      reserveEvent : Bool := false,
+      switchLockEvent : Bool := false,
+
+      reqSeg : SegmentID,
+      reqConn : Connection,
+
+      req[t : TrainID'] : SwitchboxID,
+      ack[sb : SwitchboxID'] : TrainID,
+      nack[sb : SwitchboxID'] : TrainID
+
+    init_constraint -- configured
+      pos[t1] = single(s1) /\
+      pos[t2] = single(s6) /\
+      nextSb[t1] = sb1 /\
+      nextSb[t2] = sb3 /\
+      tReservations[t1] = [sb1+>{s1}] /\
+      tReservations[t2]= [sb3+>{s6}] /\
+      (all t : TrainID' :- tLocks[t] = {}) /\
+      (all sb : SwitchboxID' :- sbSensor[sb] = passive) /\
+      sbReservations[sb0] = [s1+>t_none] /\
+      sbReservations[sb1] = [s1+>t1, s2+>t_none, s3+>t_none] /\
+      sbReservations[sb2] = [s2+>t_none, s3+>t_none, s4+>t_none] /\
+      sbReservations[sb3] = [s4+>t_none, s5+>t_none, s6+>t2] /\
+      sbReservations[sb4] = [s5+>t_none, s6+>t_none, s7+>t_none] /\
+      sbReservations[sb5] = [s7+>t_none] /\
+      (all sb : SwitchboxID' :- sbLock[sb] = t_none) /\
+      sbConnection[sb0] = border(s1) /\
+      sbConnection[sb1] = conn(s1,s3) /\
+      sbConnection[sb2] = conn(s2,s4) /\
+      sbConnection[sb3] = conn(s4,s6) /\
+      sbConnection[sb4] = conn(s5,s7) /\
+      sbConnection[sb5] = border(s7) /\
+      reserveEvent = false /\
+      switchLockEvent = false /\
+      (all t : TrainID' :- req[t] = sb_none) /\
+      (all sb : SwitchboxID' :- ack[sb] = t_none) /\
+      (all sb : SwitchboxID' :- nack[sb] = t_none)
+      
+    transition_rules
+      Reserve [=] Lock [=] Move
+      
+      where 
+
+      [Move] = 
+      (([=] t : TrainID', sb : SwitchboxID' :-
+        [move_single_to_double]
+          is_single_pos(pos[t]) /\
+	  sb = nextSb[t] /\
+          t_can_move(seg(pos[t]), nextSb[t], route[t], switchboxes[t], tLocks[t], tReservations[t]) 
+          ==>
+          pos'[t] = move_pos_single(pos[t], route[t]), 
+          sbSensor'[sb] = active
+      )
+
+      [=]
+
+      ([=] t : TrainID', sb : SwitchboxID' :-
+        [move_double_to_single]
+          ~is_single_pos(pos[t]) /\
+	  sb = nextSb[t]
+          ==>
+          pos'[t] = move_pos_double(pos[t]),
+          nextSb'[t] = move_nextsb(sb, switchboxes[t]),
+          tReservations'[t] = move_t_reservations(sb, tReservations[t]),
+          tLocks'[t] = move_t_locks(sb, tLocks[t]),
+          sbSensor'[sb] = passive,
+          sbReservations'[sb] = move_sb_reservations(pos[t], sbReservations[sb]), 
+          sbLock'[sb] = t_none
+      )
+
+      [=]
+
+      ([=] t : TrainID' :-
+        [move_end]
+	  ~reserveEvent /\
+	  ~switchLockEvent /\
+	  t_is_at_end(route[t], pos[t])
+	  ==>
+	  pos'[t] = pos[t]
+      )),
+
+      [Reserve] =
+      (([=] sb : SwitchboxID', t : TrainID', seg : SegmentID :- 
+        [train_request_reservation]
+	  ~reserveEvent /\
+	  ~switchLockEvent /\
+	  req[t] = sb_none /\ 
+          t_can_reserve(pos[t], switchboxes[t], route[t], tReservations[t], seg, sb) 
+          ==>
+	  req'[t] = sb,
+	  reqSeg' = seg,
+	  reserveEvent' = true
+      )
+
+      [=]
+
+      ([=] sb : SwitchboxID', t : TrainID' :-
+        [train_reserve_ack]
+	  reserveEvent /\
+	  ack[sb] = t
+	  ==>
+	  tReservations'[t] = reserve_t(tReservations[t], sb, reqSeg),
+	  ack'[sb] = t_none,
+	  reserveEvent' = false
+      )
+
+      [=]
+
+      ([=] sb : SwitchboxID', t : TrainID' :-
+        [train_reserve_nack]
+	  reserveEvent /\
+	  nack[sb] = t
+	  ==>
+	  nack'[sb] = t_none,
+	  reserveEvent' = false
+      )
+
+      [=]
+
+      ([=] sb : SwitchboxID', t : TrainID' :-
+        [switchbox_ack_reservation]
+	  reserveEvent /\
+	  req[t] = sb /\
+	  sb_can_reserve(sbReservations[sb], reqSeg)
+      	  ==>
+     	  ack'[sb] = t,
+      	  req'[t] = sb_none, 
+      	  sbReservations'[sb] = reserve_sb(sbReservations[sb], t, reqSeg)
+      )
+
+      [=]
+	  
+      ([=] sb : SwitchboxID', t : TrainID' :-
+        [switchbox_nack_reservation]
+	  reserveEvent /\
+	  req[t] = sb /\ 
+	  ~sb_can_reserve(sbReservations[sb], reqSeg)
+      	  ==>
+     	  nack'[sb] = t,
+      	  req'[t] = sb_none
+      )),
+      
+      [Lock] =
+      (([=] sb : SwitchboxID', t : TrainID', seg1 : SegmentID, seg2 : SegmentID :- 
+        [train_request_lock]
+	  ~reserveEvent /\
+	  ~switchLockEvent /\
+	  req[t] = sb_none /\ 
+          t_can_lock(pos[t], conn(seg1,seg2), route[t], switchboxes[t], tReservations[t], sb, tLocks[t])
+          ==>
+	  req'[t] = sb,
+	  reqConn' = conn(seg1,seg2),
+	  switchLockEvent' = true
+      )
+
+      [=]
+
+      ([=] sb : SwitchboxID', t : TrainID' :-
+        [train_lock_ack]
+	  switchLockEvent /\
+	  ack[sb] = t
+	  ==>
+	  tLocks'[t] = lock_t(tLocks[t], sb),
+	  ack'[sb] = t_none,
+	  switchLockEvent' = false
+      )
+
+      [=]
+
+      ([=] sb : SwitchboxID', t : TrainID' :-
+        [train_lock_nack]
+	  switchLockEvent /\
+	  nack[sb] = t
+	  ==>
+	  nack'[sb] = t_none,
+	  switchLockEvent' = false
+      )
+
+      [=]
+
+      ([=] sb : SwitchboxID', t : TrainID' :-
+        [switchbox_ack_lock]
+	  switchLockEvent /\
+	  req[t] = sb /\ 
+	  sb_can_lock(reqConn, sbLock[sb], sbSensor[sb])  
+      	  ==>
+     	  ack'[sb] = t,
+      	  req'[t] = sb_none,
+	  sbConnection'[sb] = reqConn,
+ 	  sbLock'[sb] = t
+      )
+
+      [=]
+	  
+      ([=] sb : SwitchboxID', t : TrainID' :-
+        [switchbox_nack_lock]
+	  switchLockEvent /\
+	  req[t] = sb /\ 
+	  ~sb_can_lock(reqConn, sbLock[sb], sbSensor[sb]) 
+      	  ==>
+     	  nack'[sb] = t,
+      	  req'[t] = sb_none
+      ))
+
+    end
+
+    ltl_assertion
+    -- SAFETY
+    [no_collide]
+      TS |- (all tid1, tid2 : TrainID' :-
+      	      G(no_collide(tid1, tid2, pos[tid1], pos[tid2]))),
+	      
+    [no_derail]
+      TS |- (all t : TrainID', sb : SwitchboxID' :-
+      	      G(sb = nextSb[t] => no_derail(pos[t], sbConnection[sb]))), 
+
+    -- INVARIANTS
+    [cons_res_pos]
+      TS |- (all t : TrainID' :-
+      	      G(cons_res_pos(tReservations[t], pos[t], nextSb[t], switchboxes[t]))),
+
+    [cons_locks_pos]
+      TS |- (all t : TrainID' :-
+      	      G(cons_locks_pos(tLocks[t], pos[t], nextSb[t]))),
+
+    [cons_res_route]
+      TS |- (all t : TrainID' :-
+       	    G(cons_res_route(tReservations[t], route[t]))),
+    
+    [cons_locks_switchboxes]
+      TS |- (all t : TrainID' :-
+      	      G(cons_locks_switchboxes(tLocks[t], switchboxes[t]))),
+
+    [cons_pos_network]
+      TS |- (all t : TrainID' :-
+      	      G(cons_pos_network(pos[t], network))),
+	      
+    [cons_pos_route]
+      TS |- (all t : TrainID' :-
+      	      G(cons_pos_route(pos[t], route[t]))),
+	      
+    [cons_nextsb_switchboxes]
+      TS |- (all t : TrainID' :-
+      	      G(cons_nextsb_switchboxes(nextSb[t], switchboxes[t]))),
+	      
+    [cons_nextsb_pos]
+      TS |- (all t : TrainID' :-
+      	      G(cons_nextsb_pos(nextSb[t], pos[t], netSwitchboxes))),
+	      
+    [cons_connection_netswitchboxes]
+      TS |- (all sb : SwitchboxID' :-
+      	      G(cons_connection_netswitchboxes(sbConnection[sb],netSwitchboxes(sb)))),
+
+    [cons_reservations_netswitchboxes]
+      TS |- (all sb : SwitchboxID' :-
+      	      G(cons_sb_res_netswitchboxes(sbReservations[sb],netSwitchboxes(sb)))),
+
+    [cons_t_sb_res]
+      TS |- (all sb : SwitchboxID', t : TrainID' :-
+      	      G(cons_t_sb_res(t, sb, tReservations[t], sbReservations[sb]))),
+
+    [cons_sb_t_res]
+      TS |- (all sb : SwitchboxID', t : TrainID' :-
+      	      G(~reserveEvent => cons_sb_t_res(t, sb, tReservations[t], sbReservations[sb]))),
+
+    [cons_locks]
+      TS |- (all sb : SwitchboxID', t : TrainID' :-
+      	      G(~switchLockEvent => cons_locks(t, sb, tLocks[t], sbLock[sb]))),
+	      
+    [cons_sensor_pos]
+      TS |- (all sb : SwitchboxID', t : TrainID' :-
+      	      G(sb = nextSb[t] => cons_sensor_pos(pos[t], sbSensor[sb]))),
+    
+    -- SHOW TRACE OF SUCCESSFULLY REACHING DESTINATION
+    [not_all_trains_arrive] TS |- G( ~(all t : TrainID' :- t_is_at_end(route[t], pos[t]))),
+
+    -- EVENTS EVENTUALLY END
+    [finish_reserve]       TS |- G(reserveEvent => F(~reserveEvent)),
+    [finish_switchlock]    TS |- G(switchLockEvent => F(~switchLockEvent))
+  end

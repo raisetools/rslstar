@@ -1,0 +1,42 @@
+no_collide
+	0:01.27 time, 	72756 max_mem KB
+no_derail
+	0:01.24 time, 	72308 max_mem KB
+cons_res_pos
+	0:01.32 time, 	88804 max_mem KB
+cons_locks_pos
+	0:01.27 time, 	66820 max_mem KB
+cons_res_route
+	0:01.26 time, 	71664 max_mem KB
+cons_locks_switchboxes
+	0:01.25 time, 	71976 max_mem KB
+cons_pos_network
+	0:01.26 time, 	73136 max_mem KB
+cons_pos_route
+	0:01.25 time, 	71904 max_mem KB
+cons_nextsb_switchboxes
+	0:01.26 time, 	72180 max_mem KB
+cons_nextsb_pos
+	0:01.26 time, 	72520 max_mem KB
+cons_connection_netswitchboxes
+	0:01.25 time, 	72080 max_mem KB
+cons_reservations_netswitchboxes
+	0:01.25 time, 	72048 max_mem KB
+cons_res_t1_sb
+	0:01.33 time, 	88888 max_mem KB
+cons_res_t2_sb
+	0:01.28 time, 	72264 max_mem KB
+cons_res_sb_t1
+	0:01.35 time, 	88804 max_mem KB
+cons_res_sb_t2
+	0:01.28 time, 	72400 max_mem KB
+cons_locks
+	0:01.25 time, 	72304 max_mem KB
+cons_sensor_pos
+	0:01.27 time, 	66872 max_mem KB
+Command terminated by signal 9
+	10:27.98 time, 	30359816 max_mem KB
+Command exited with non-zero status 255
+	0:00.08 time, 	22764 max_mem KB
+Command terminated by signal 9
+	11:13.34 time, 	30248704 max_mem KB

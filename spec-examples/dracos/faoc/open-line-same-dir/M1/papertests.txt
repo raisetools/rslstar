@@ -1,0 +1,44 @@
+no_collide
+	0:05.94 time, 	126708 max_mem KB
+no_derail
+	0:05.73 time, 	129992 max_mem KB
+cons_res_pos
+	0:05.57 time, 	129696 max_mem KB
+cons_locks_pos
+	0:05.53 time, 	129704 max_mem KB
+cons_res_route
+	0:05.56 time, 	129692 max_mem KB
+cons_locks_switchboxes
+	0:05.63 time, 	129704 max_mem KB
+cons_pos_network
+	0:05.65 time, 	129700 max_mem KB
+cons_pos_route
+	0:05.66 time, 	129648 max_mem KB
+cons_nextsb_switchboxes
+	0:05.58 time, 	129672 max_mem KB
+cons_nextsb_pos
+	0:05.55 time, 	129676 max_mem KB
+cons_connection_netswitchboxes
+	0:05.64 time, 	129660 max_mem KB
+cons_reservations_netswitchboxes
+	0:05.64 time, 	128964 max_mem KB
+cons_res_t1_sb012
+	0:05.68 time, 	129584 max_mem KB
+cons_res_t1_sb345
+	0:05.75 time, 	129676 max_mem KB
+cons_res_t2_sb012
+	0:05.56 time, 	129668 max_mem KB
+cons_res_t2_sb345
+	0:05.56 time, 	129664 max_mem KB
+cons_res_sb012_t1
+	0:05.49 time, 	129668 max_mem KB
+cons_res_sb345_t1
+	0:05.52 time, 	129672 max_mem KB
+cons_res_sb012_t2
+	0:05.53 time, 	129676 max_mem KB
+cons_res_sb345_t2
+	0:05.56 time, 	129740 max_mem KB
+cons_locks
+	0:05.53 time, 	129660 max_mem KB
+cons_sensor_pos
+	0:05.54 time, 	129696 max_mem KB

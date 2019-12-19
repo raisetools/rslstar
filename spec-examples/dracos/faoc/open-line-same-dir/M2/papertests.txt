@@ -1,0 +1,50 @@
+no_collide
+	2:48.89 time, 	173648 max_mem KB
+no_derail
+	2:48.08 time, 	175580 max_mem KB
+cons_res_pos
+	2:48.33 time, 	176060 max_mem KB
+cons_locks_pos
+	2:34.04 time, 	179224 max_mem KB
+cons_res_route
+	2:33.76 time, 	179280 max_mem KB
+cons_locks_switchboxes
+	2:35.15 time, 	179732 max_mem KB
+cons_pos_network
+	2:34.96 time, 	179376 max_mem KB
+cons_pos_route
+	2:34.51 time, 	179360 max_mem KB
+cons_nextsb_switchboxes
+	2:48.54 time, 	176072 max_mem KB
+cons_nextsb_pos
+	2:48.94 time, 	176100 max_mem KB
+cons_connection_netswitchboxes
+	2:47.58 time, 	173644 max_mem KB
+cons_reservations_netswitchboxes
+	2:49.14 time, 	173648 max_mem KB
+cons_res_t1_sb012
+	2:48.60 time, 	173684 max_mem KB
+cons_res_t1_sb345
+	2:48.61 time, 	173564 max_mem KB
+cons_res_t2_sb012
+	2:47.26 time, 	175996 max_mem KB
+cons_res_t2_sb345
+	2:33.59 time, 	179256 max_mem KB
+cons_res_sb012_t1
+	2:49.30 time, 	173640 max_mem KB
+cons_res_sb345_t1
+	2:48.09 time, 	173644 max_mem KB
+cons_res_sb012_t2
+	2:47.92 time, 	173652 max_mem KB
+cons_res_sb345_t2
+	2:48.26 time, 	172728 max_mem KB
+cons_locks
+	2:47.81 time, 	172304 max_mem KB
+cons_sensor_pos
+	2:47.34 time, 	176104 max_mem KB
+finish_reserve
+	2:49.69 time, 	177752 max_mem KB
+finish_switchlock
+	3:16.64 time, 	177312 max_mem KB
+deadlock_check
+	1:51.49 time, 	170604 max_mem KB

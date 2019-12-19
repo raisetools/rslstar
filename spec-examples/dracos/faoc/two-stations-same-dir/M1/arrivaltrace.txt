@@ -1,0 +1,3607 @@
+ARRIVAL TRACE
+Counterexample:
+========================
+Path
+========================
+Step 0:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s2)
+nextSb_t1 = sb1
+nextSb_t2 = sb2
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16125
+                                               : SegmentID):
+                                        (arg!16125 /= s7) and
+                                        (arg!16125 /= s6) and
+                                        (arg!16125 /= s5) and
+                                        (arg!16125 /= s4) and
+                                        (arg!16125 /= s3) and
+                                        (arg!16125 /= s2)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16129
+                                               : SegmentID):
+                                        (arg!16129 /= s7) and
+                                        (arg!16129 /= s6) and
+                                        (arg!16129 /= s5) and
+                                        (arg!16129 /= s4) and
+                                        (arg!16129 /= s3) and
+                                        (arg!16129 = s2)))
+tReservations_t2(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t_none)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t_none
+sbLock_sb3 = t_none
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s3)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s6)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label reserve_sb3_t2_s5
+    transition at [Context: V1u, line(722), column(4)]))
+------------------------
+Step 1:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s2)
+nextSb_t1 = sb1
+nextSb_t2 = sb2
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16147
+                                               : SegmentID):
+                                        (arg!16147 /= s7) and
+                                        (arg!16147 /= s6) and
+                                        (arg!16147 /= s5) and
+                                        (arg!16147 /= s4) and
+                                        (arg!16147 /= s3) and
+                                        (arg!16147 /= s2)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16151
+                                               : SegmentID):
+                                        (arg!16151 /= s7) and
+                                        (arg!16151 /= s6) and
+                                        (arg!16151 /= s5) and
+                                        (arg!16151 /= s4) and
+                                        (arg!16151 /= s3) and
+                                        (arg!16151 = s2)))
+tReservations_t2(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16152
+                                               : SegmentID):
+                                        (arg!16152 /= s7) and
+                                        (arg!16152 /= s6) and
+                                        (arg!16152 = s5)))
+tReservations_t2(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t_none)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t_none
+sbLock_sb3 = t_none
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s3)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s6)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label reserve_sb4_t2_s7
+    transition at [Context: V1u, line(818), column(4)]))
+------------------------
+Step 2:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s2)
+nextSb_t1 = sb1
+nextSb_t2 = sb2
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16170
+                                               : SegmentID):
+                                        (arg!16170 /= s7) and
+                                        (arg!16170 /= s6) and
+                                        (arg!16170 /= s5) and
+                                        (arg!16170 /= s4) and
+                                        (arg!16170 /= s3) and
+                                        (arg!16170 /= s2)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16174
+                                               : SegmentID):
+                                        (arg!16174 /= s7) and
+                                        (arg!16174 /= s6) and
+                                        (arg!16174 /= s5) and
+                                        (arg!16174 /= s4) and
+                                        (arg!16174 /= s3) and
+                                        (arg!16174 = s2)))
+tReservations_t2(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16175
+                                               : SegmentID):
+                                        (arg!16175 /= s7) and
+                                        (arg!16175 /= s6) and
+                                        (arg!16175 = s5)))
+tReservations_t2(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16176
+                                               : SegmentID):
+                                        arg!16176 = s7))
+tReservations_t2(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t_none)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t_none
+sbLock_sb3 = t_none
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s3)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s6)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label reserve_sb5_t2_s7
+    transition at [Context: V1u, line(902), column(4)]))
+------------------------
+Step 3:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s2)
+nextSb_t1 = sb1
+nextSb_t2 = sb2
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16194
+                                               : SegmentID):
+                                        (arg!16194 /= s7) and
+                                        (arg!16194 /= s6) and
+                                        (arg!16194 /= s5) and
+                                        (arg!16194 /= s4) and
+                                        (arg!16194 /= s3) and
+                                        (arg!16194 /= s2)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16198
+                                               : SegmentID):
+                                        (arg!16198 /= s7) and
+                                        (arg!16198 /= s6) and
+                                        (arg!16198 /= s5) and
+                                        (arg!16198 /= s4) and
+                                        (arg!16198 /= s3) and
+                                        (arg!16198 = s2)))
+tReservations_t2(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16199
+                                               : SegmentID):
+                                        (arg!16199 /= s7) and
+                                        (arg!16199 /= s6) and
+                                        (arg!16199 = s5)))
+tReservations_t2(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16200
+                                               : SegmentID):
+                                        arg!16200 = s7))
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16201
+                                               : SegmentID):
+                                        arg!16201 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t_none
+sbLock_sb3 = t_none
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s3)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s6)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label reserve_sb4_t2_s5
+    transition at [Context: V1u, line(806), column(4)]))
+------------------------
+Step 4:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s2)
+nextSb_t1 = sb1
+nextSb_t2 = sb2
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16219
+                                               : SegmentID):
+                                        (arg!16219 /= s7) and
+                                        (arg!16219 /= s6) and
+                                        (arg!16219 /= s5) and
+                                        (arg!16219 /= s4) and
+                                        (arg!16219 /= s3) and
+                                        (arg!16219 /= s2)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16223
+                                               : SegmentID):
+                                        (arg!16223 /= s7) and
+                                        (arg!16223 /= s6) and
+                                        (arg!16223 /= s5) and
+                                        (arg!16223 /= s4) and
+                                        (arg!16223 /= s3) and
+                                        (arg!16223 = s2)))
+tReservations_t2(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16224
+                                               : SegmentID):
+                                        (arg!16224 /= s7) and
+                                        (arg!16224 /= s6) and
+                                        (arg!16224 = s5)))
+tReservations_t2(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16225
+                                               : SegmentID):
+                                        (arg!16225 = s7) or (arg!16225 /= s6) and (arg!16225 = s5)))
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16226
+                                               : SegmentID):
+                                        arg!16226 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t_none
+sbLock_sb3 = t_none
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s3)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s6)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label reserve_sb3_t2_s4
+    transition at [Context: V1u, line(716), column(4)]))
+------------------------
+Step 5:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s2)
+nextSb_t1 = sb1
+nextSb_t2 = sb2
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16244
+                                               : SegmentID):
+                                        (arg!16244 /= s7) and
+                                        (arg!16244 /= s6) and
+                                        (arg!16244 /= s5) and
+                                        (arg!16244 /= s4) and
+                                        (arg!16244 /= s3) and
+                                        (arg!16244 /= s2)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16248
+                                               : SegmentID):
+                                        (arg!16248 /= s7) and
+                                        (arg!16248 /= s6) and
+                                        (arg!16248 /= s5) and
+                                        (arg!16248 /= s4) and
+                                        (arg!16248 /= s3) and
+                                        (arg!16248 = s2)))
+tReservations_t2(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16249
+                                               : SegmentID):
+                                        (arg!16249 /= s7) and
+                                        (arg!16249 /= s6) and
+                                        ((arg!16249 = s5) or (arg!16249 = s4))))
+tReservations_t2(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16250
+                                               : SegmentID):
+                                        (arg!16250 = s7) or (arg!16250 /= s6) and (arg!16250 = s5)))
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16251
+                                               : SegmentID):
+                                        arg!16251 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t_none
+sbLock_sb3 = t_none
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s3)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s6)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label reserve_sb2_t2_s4
+    transition at [Context: V1u, line(632), column(4)]))
+------------------------
+Step 6:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s2)
+nextSb_t1 = sb1
+nextSb_t2 = sb2
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16269
+                                               : SegmentID):
+                                        (arg!16269 /= s7) and
+                                        (arg!16269 /= s6) and
+                                        (arg!16269 /= s5) and
+                                        (arg!16269 /= s4) and
+                                        (arg!16269 /= s3) and
+                                        (arg!16269 /= s2)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16273
+                                               : SegmentID):
+                                        (arg!16273 /= s7) and
+                                        (arg!16273 /= s6) and
+                                        (arg!16273 /= s5) and
+                                        ((arg!16273 = s4) or
+                                        (arg!16273 /= s3) and (arg!16273 = s2))))
+tReservations_t2(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16274
+                                               : SegmentID):
+                                        (arg!16274 /= s7) and
+                                        (arg!16274 /= s6) and
+                                        ((arg!16274 = s5) or (arg!16274 = s4))))
+tReservations_t2(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16275
+                                               : SegmentID):
+                                        (arg!16275 = s7) or (arg!16275 /= s6) and (arg!16275 = s5)))
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16276
+                                               : SegmentID):
+                                        arg!16276 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t_none
+sbLock_sb3 = t_none
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s3)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s6)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label lock_sb2_t2_s2_s4
+    transition at [Context: V1u, line(2693), column(4)]))
+------------------------
+Step 7:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s2)
+nextSb_t1 = sb1
+nextSb_t2 = sb2
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16294
+                                               : SegmentID):
+                                        (arg!16294 /= s7) and
+                                        (arg!16294 /= s6) and
+                                        (arg!16294 /= s5) and
+                                        (arg!16294 /= s4) and
+                                        (arg!16294 /= s3) and
+                                        (arg!16294 /= s2)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16298
+                                               : SegmentID):
+                                        (arg!16298 /= s7) and
+                                        (arg!16298 /= s6) and
+                                        (arg!16298 /= s5) and
+                                        ((arg!16298 = s4) or
+                                        (arg!16298 /= s3) and (arg!16298 = s2))))
+tReservations_t2(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16299
+                                               : SegmentID):
+                                        (arg!16299 /= s7) and
+                                        (arg!16299 /= s6) and
+                                        ((arg!16299 = s5) or (arg!16299 = s4))))
+tReservations_t2(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16300
+                                               : SegmentID):
+                                        (arg!16300 = s7) or (arg!16300 /= s6) and (arg!16300 = s5)))
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16301
+                                               : SegmentID):
+                                        arg!16301 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = true
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t2
+sbLock_sb3 = t_none
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s3)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s6)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label move_single_to_double_t2_sb2
+    transition at [Context: V1u, line(5080), column(4)]))
+------------------------
+Step 8:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = double(s2, s4)
+nextSb_t1 = sb1
+nextSb_t2 = sb2
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16319
+                                               : SegmentID):
+                                        (arg!16319 /= s7) and
+                                        (arg!16319 /= s6) and
+                                        (arg!16319 /= s5) and
+                                        (arg!16319 /= s4) and
+                                        (arg!16319 /= s3) and
+                                        (arg!16319 /= s2)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16323
+                                               : SegmentID):
+                                        (arg!16323 /= s7) and
+                                        (arg!16323 /= s6) and
+                                        (arg!16323 /= s5) and
+                                        ((arg!16323 = s4) or
+                                        (arg!16323 /= s3) and (arg!16323 = s2))))
+tReservations_t2(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16324
+                                               : SegmentID):
+                                        (arg!16324 /= s7) and
+                                        (arg!16324 /= s6) and
+                                        ((arg!16324 = s5) or (arg!16324 = s4))))
+tReservations_t2(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16325
+                                               : SegmentID):
+                                        (arg!16325 = s7) or (arg!16325 /= s6) and (arg!16325 = s5)))
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16326
+                                               : SegmentID):
+                                        arg!16326 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = true
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = active
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t2
+sbLock_sb3 = t_none
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s3)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s6)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label move_double_to_single_t2_sb2
+    transition at [Context: V1u, line(5196), column(5)]))
+------------------------
+Step 9:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s4)
+nextSb_t1 = sb1
+nextSb_t2 = sb3
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16344
+                                               : SegmentID):
+                                        (arg!16344 /= s7) and
+                                        (arg!16344 /= s6) and
+                                        (arg!16344 /= s5) and
+                                        (arg!16344 /= s4) and
+                                        (arg!16344 /= s3) and
+                                        (arg!16344 /= s2)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16348
+                                               : SegmentID):
+                                        (arg!16348 /= s7) and
+                                        (arg!16348 /= s6) and
+                                        ((arg!16348 = s5) or (arg!16348 = s4))))
+tReservations_t2(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16349
+                                               : SegmentID):
+                                        (arg!16349 = s7) or (arg!16349 /= s6) and (arg!16349 = s5)))
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16350
+                                               : SegmentID):
+                                        arg!16350 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t_none
+sbLock_sb3 = t_none
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s3)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s6)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label lock_sb3_t2_s4_s5
+    transition at [Context: V1u, line(3484), column(4)]))
+------------------------
+Step 10:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s4)
+nextSb_t1 = sb1
+nextSb_t2 = sb3
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16368
+                                               : SegmentID):
+                                        (arg!16368 /= s7) and
+                                        (arg!16368 /= s6) and
+                                        (arg!16368 /= s5) and
+                                        (arg!16368 /= s4) and
+                                        (arg!16368 /= s3) and
+                                        (arg!16368 /= s2)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16372
+                                               : SegmentID):
+                                        (arg!16372 /= s7) and
+                                        (arg!16372 /= s6) and
+                                        ((arg!16372 = s5) or (arg!16372 = s4))))
+tReservations_t2(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16373
+                                               : SegmentID):
+                                        (arg!16373 = s7) or (arg!16373 /= s6) and (arg!16373 = s5)))
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16374
+                                               : SegmentID):
+                                        arg!16374 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = true
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t_none
+sbLock_sb3 = t2
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s3)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label reserve_sb1_t1_s2
+    transition at [Context: V1u, line(494), column(4)]))
+------------------------
+Step 11:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s4)
+nextSb_t1 = sb1
+nextSb_t2 = sb3
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16392
+                                               : SegmentID):
+                                        (arg!16392 /= s7) and
+                                        (arg!16392 /= s6) and
+                                        (arg!16392 /= s5) and
+                                        (arg!16392 /= s4) and
+                                        (arg!16392 /= s3)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16396
+                                               : SegmentID):
+                                        (arg!16396 /= s7) and
+                                        (arg!16396 /= s6) and
+                                        ((arg!16396 = s5) or (arg!16396 = s4))))
+tReservations_t2(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16397
+                                               : SegmentID):
+                                        (arg!16397 = s7) or (arg!16397 /= s6) and (arg!16397 = s5)))
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16398
+                                               : SegmentID):
+                                        arg!16398 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = true
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t_none
+sbLock_sb3 = t2
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s3)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label lock_sb4_t2_s5_s7
+    transition at [Context: V1u, line(4233), column(4)]))
+------------------------
+Step 12:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s4)
+nextSb_t1 = sb1
+nextSb_t2 = sb3
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16416
+                                               : SegmentID):
+                                        (arg!16416 /= s7) and
+                                        (arg!16416 /= s6) and
+                                        (arg!16416 /= s5) and
+                                        (arg!16416 /= s4) and
+                                        (arg!16416 /= s3)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16420
+                                               : SegmentID):
+                                        (arg!16420 /= s7) and
+                                        (arg!16420 /= s6) and
+                                        ((arg!16420 = s5) or (arg!16420 = s4))))
+tReservations_t2(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16421
+                                               : SegmentID):
+                                        (arg!16421 = s7) or (arg!16421 /= s6) and (arg!16421 = s5)))
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16422
+                                               : SegmentID):
+                                        arg!16422 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = true
+tLocks_t2(sb4) = true
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t_none
+sbLock_sb3 = t2
+sbLock_sb4 = t2
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s3)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label move_single_to_double_t2_sb3
+    transition at [Context: V1u, line(5087), column(4)]))
+------------------------
+Step 13:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = double(s4, s5)
+nextSb_t1 = sb1
+nextSb_t2 = sb3
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16440
+                                               : SegmentID):
+                                        (arg!16440 /= s7) and
+                                        (arg!16440 /= s6) and
+                                        (arg!16440 /= s5) and
+                                        (arg!16440 /= s4) and
+                                        (arg!16440 /= s3)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16444
+                                               : SegmentID):
+                                        (arg!16444 /= s7) and
+                                        (arg!16444 /= s6) and
+                                        ((arg!16444 = s5) or (arg!16444 = s4))))
+tReservations_t2(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16445
+                                               : SegmentID):
+                                        (arg!16445 = s7) or (arg!16445 /= s6) and (arg!16445 = s5)))
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16446
+                                               : SegmentID):
+                                        arg!16446 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = true
+tLocks_t2(sb4) = true
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = active
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t_none
+sbLock_sb3 = t2
+sbLock_sb4 = t2
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s3)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label lock_sb1_t1_s1_s2
+    transition at [Context: V1u, line(1601), column(4)]))
+------------------------
+Step 14:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = double(s4, s5)
+nextSb_t1 = sb1
+nextSb_t2 = sb3
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16464
+                                               : SegmentID):
+                                        (arg!16464 /= s7) and
+                                        (arg!16464 /= s6) and
+                                        (arg!16464 /= s5) and
+                                        (arg!16464 /= s4) and
+                                        (arg!16464 /= s3)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16468
+                                               : SegmentID):
+                                        (arg!16468 /= s7) and
+                                        (arg!16468 /= s6) and
+                                        ((arg!16468 = s5) or (arg!16468 = s4))))
+tReservations_t2(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16469
+                                               : SegmentID):
+                                        (arg!16469 = s7) or (arg!16469 /= s6) and (arg!16469 = s5)))
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16470
+                                               : SegmentID):
+                                        arg!16470 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = true
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = true
+tLocks_t2(sb4) = true
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = active
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t1
+sbLock_sb2 = t_none
+sbLock_sb3 = t2
+sbLock_sb4 = t2
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s2)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label move_double_to_single_t2_sb3
+    transition at [Context: V1u, line(5207), column(5)]))
+------------------------
+Step 15:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s5)
+nextSb_t1 = sb1
+nextSb_t2 = sb4
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16488
+                                               : SegmentID):
+                                        (arg!16488 /= s7) and
+                                        (arg!16488 /= s6) and
+                                        (arg!16488 /= s5) and
+                                        (arg!16488 /= s4) and
+                                        (arg!16488 /= s3)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16492
+                                               : SegmentID):
+                                        (arg!16492 = s7) or (arg!16492 /= s6) and (arg!16492 = s5)))
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16493
+                                               : SegmentID):
+                                        arg!16493 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = true
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = true
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t1
+sbLock_sb2 = t_none
+sbLock_sb3 = t_none
+sbLock_sb4 = t2
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s2)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label move_single_to_double_t2_sb4
+    transition at [Context: V1u, line(5094), column(4)]))
+------------------------
+Step 16:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = double(s5, s7)
+nextSb_t1 = sb1
+nextSb_t2 = sb4
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16511
+                                               : SegmentID):
+                                        (arg!16511 /= s7) and
+                                        (arg!16511 /= s6) and
+                                        (arg!16511 /= s5) and
+                                        (arg!16511 /= s4) and
+                                        (arg!16511 /= s3)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16515
+                                               : SegmentID):
+                                        (arg!16515 = s7) or (arg!16515 /= s6) and (arg!16515 = s5)))
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16516
+                                               : SegmentID):
+                                        arg!16516 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = true
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = true
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = active
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t2)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t1
+sbLock_sb2 = t_none
+sbLock_sb3 = t_none
+sbLock_sb4 = t2
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s2)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label move_double_to_single_t2_sb4
+    transition at [Context: V1u, line(5218), column(5)]))
+------------------------
+Step 17:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s7)
+nextSb_t1 = sb1
+nextSb_t2 = sb5
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16534
+                                               : SegmentID):
+                                        (arg!16534 /= s7) and
+                                        (arg!16534 /= s6) and
+                                        (arg!16534 /= s5) and
+                                        (arg!16534 /= s4) and
+                                        (arg!16534 /= s3)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16538
+                                               : SegmentID):
+                                        arg!16538 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = true
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t1
+sbLock_sb2 = t_none
+sbLock_sb3 = t_none
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s2)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label reserve_sb4_t1_s5
+    transition at [Context: V1u, line(764), column(4)]))
+------------------------
+Step 18:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s7)
+nextSb_t1 = sb1
+nextSb_t2 = sb5
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16556
+                                               : SegmentID):
+                                        (arg!16556 /= s7) and
+                                        (arg!16556 /= s6) and
+                                        (arg!16556 /= s5) and
+                                        (arg!16556 /= s4) and
+                                        (arg!16556 /= s3)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16557
+                                               : SegmentID):
+                                        (arg!16557 /= s7) and
+                                        (arg!16557 /= s6) and
+                                        (arg!16557 = s5)))
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16561
+                                               : SegmentID):
+                                        arg!16561 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = true
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t1
+sbLock_sb2 = t_none
+sbLock_sb3 = t_none
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s2)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label reserve_sb3_t1_s4
+    transition at [Context: V1u, line(674), column(4)]))
+------------------------
+Step 19:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s7)
+nextSb_t1 = sb1
+nextSb_t2 = sb5
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16579
+                                               : SegmentID):
+                                        (arg!16579 /= s7) and
+                                        (arg!16579 /= s6) and
+                                        (arg!16579 /= s5) and
+                                        (arg!16579 /= s4) and
+                                        (arg!16579 /= s3)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16580
+                                               : SegmentID):
+                                        (arg!16580 /= s7) and
+                                        (arg!16580 /= s6) and
+                                        (arg!16580 /= s5) and
+                                        (arg!16580 = s4)))
+tReservations_t1(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16581
+                                               : SegmentID):
+                                        (arg!16581 /= s7) and
+                                        (arg!16581 /= s6) and
+                                        (arg!16581 = s5)))
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16585
+                                               : SegmentID):
+                                        arg!16585 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = true
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t1
+sbLock_sb2 = t_none
+sbLock_sb3 = t_none
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s2)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label reserve_sb3_t1_s5
+    transition at [Context: V1u, line(680), column(4)]))
+------------------------
+Step 20:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s7)
+nextSb_t1 = sb1
+nextSb_t2 = sb5
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16603
+                                               : SegmentID):
+                                        (arg!16603 /= s7) and
+                                        (arg!16603 /= s6) and
+                                        (arg!16603 /= s5) and
+                                        (arg!16603 /= s4) and
+                                        (arg!16603 /= s3)))
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16604
+                                               : SegmentID):
+                                        (arg!16604 /= s7) and
+                                        (arg!16604 /= s6) and
+                                        ((arg!16604 = s5) or (arg!16604 = s4))))
+tReservations_t1(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16605
+                                               : SegmentID):
+                                        (arg!16605 /= s7) and
+                                        (arg!16605 /= s6) and
+                                        (arg!16605 = s5)))
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16609
+                                               : SegmentID):
+                                        arg!16609 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = true
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t1
+sbLock_sb2 = t_none
+sbLock_sb3 = t_none
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s2)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label reserve_sb2_t1_s2
+    transition at [Context: V1u, line(578), column(4)]))
+------------------------
+Step 21:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s7)
+nextSb_t1 = sb1
+nextSb_t2 = sb5
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16627
+                                               : SegmentID):
+                                        (arg!16627 /= s7) and
+                                        (arg!16627 /= s6) and
+                                        (arg!16627 /= s5) and
+                                        (arg!16627 /= s4) and
+                                        (arg!16627 /= s3)))
+tReservations_t1(sb2) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16628
+                                               : SegmentID):
+                                        (arg!16628 /= s7) and
+                                        (arg!16628 /= s6) and
+                                        (arg!16628 /= s5) and
+                                        (arg!16628 /= s4) and
+                                        (arg!16628 /= s3) and
+                                        (arg!16628 = s2)))
+tReservations_t1(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16629
+                                               : SegmentID):
+                                        (arg!16629 /= s7) and
+                                        (arg!16629 /= s6) and
+                                        ((arg!16629 = s5) or (arg!16629 = s4))))
+tReservations_t1(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16630
+                                               : SegmentID):
+                                        (arg!16630 /= s7) and
+                                        (arg!16630 /= s6) and
+                                        (arg!16630 = s5)))
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16634
+                                               : SegmentID):
+                                        arg!16634 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = true
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t1
+sbLock_sb2 = t_none
+sbLock_sb3 = t_none
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s2)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label reserve_sb2_t1_s4
+    transition at [Context: V1u, line(590), column(4)]))
+------------------------
+Step 22:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s7)
+nextSb_t1 = sb1
+nextSb_t2 = sb5
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16652
+                                               : SegmentID):
+                                        (arg!16652 /= s7) and
+                                        (arg!16652 /= s6) and
+                                        (arg!16652 /= s5) and
+                                        (arg!16652 /= s4) and
+                                        (arg!16652 /= s3)))
+tReservations_t1(sb2) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16653
+                                               : SegmentID):
+                                        (arg!16653 /= s7) and
+                                        (arg!16653 /= s6) and
+                                        (arg!16653 /= s5) and
+                                        ((arg!16653 = s4) or
+                                        (arg!16653 /= s3) and (arg!16653 = s2))))
+tReservations_t1(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16654
+                                               : SegmentID):
+                                        (arg!16654 /= s7) and
+                                        (arg!16654 /= s6) and
+                                        ((arg!16654 = s5) or (arg!16654 = s4))))
+tReservations_t1(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16655
+                                               : SegmentID):
+                                        (arg!16655 /= s7) and
+                                        (arg!16655 /= s6) and
+                                        (arg!16655 = s5)))
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16659
+                                               : SegmentID):
+                                        arg!16659 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = true
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t1
+sbLock_sb2 = t_none
+sbLock_sb3 = t_none
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s2)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label lock_sb3_t1_s4_s5
+    transition at [Context: V1u, line(3141), column(4)]))
+------------------------
+Step 23:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s7)
+nextSb_t1 = sb1
+nextSb_t2 = sb5
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16677
+                                               : SegmentID):
+                                        (arg!16677 /= s7) and
+                                        (arg!16677 /= s6) and
+                                        (arg!16677 /= s5) and
+                                        (arg!16677 /= s4) and
+                                        (arg!16677 /= s3)))
+tReservations_t1(sb2) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16678
+                                               : SegmentID):
+                                        (arg!16678 /= s7) and
+                                        (arg!16678 /= s6) and
+                                        (arg!16678 /= s5) and
+                                        ((arg!16678 = s4) or
+                                        (arg!16678 /= s3) and (arg!16678 = s2))))
+tReservations_t1(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16679
+                                               : SegmentID):
+                                        (arg!16679 /= s7) and
+                                        (arg!16679 /= s6) and
+                                        ((arg!16679 = s5) or (arg!16679 = s4))))
+tReservations_t1(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16680
+                                               : SegmentID):
+                                        (arg!16680 /= s7) and
+                                        (arg!16680 /= s6) and
+                                        (arg!16680 = s5)))
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16684
+                                               : SegmentID):
+                                        arg!16684 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = true
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = true
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t1
+sbLock_sb2 = t_none
+sbLock_sb3 = t1
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s2)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label lock_sb2_t1_s2_s4
+    transition at [Context: V1u, line(2350), column(4)]))
+------------------------
+Step 24:
+--- System Variables (assignments) ---
+pos_t1 = single(s1)
+pos_t2 = single(s7)
+nextSb_t1 = sb1
+nextSb_t2 = sb5
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16702
+                                               : SegmentID):
+                                        (arg!16702 /= s7) and
+                                        (arg!16702 /= s6) and
+                                        (arg!16702 /= s5) and
+                                        (arg!16702 /= s4) and
+                                        (arg!16702 /= s3)))
+tReservations_t1(sb2) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16703
+                                               : SegmentID):
+                                        (arg!16703 /= s7) and
+                                        (arg!16703 /= s6) and
+                                        (arg!16703 /= s5) and
+                                        ((arg!16703 = s4) or
+                                        (arg!16703 /= s3) and (arg!16703 = s2))))
+tReservations_t1(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16704
+                                               : SegmentID):
+                                        (arg!16704 /= s7) and
+                                        (arg!16704 /= s6) and
+                                        ((arg!16704 = s5) or (arg!16704 = s4))))
+tReservations_t1(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16705
+                                               : SegmentID):
+                                        (arg!16705 /= s7) and
+                                        (arg!16705 /= s6) and
+                                        (arg!16705 = s5)))
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16709
+                                               : SegmentID):
+                                        arg!16709 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = true
+tLocks_t1(sb2) = true
+tLocks_t1(sb3) = true
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t1
+sbLock_sb2 = t1
+sbLock_sb3 = t1
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s2)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label move_single_to_double_t1_sb1
+    transition at [Context: V1u, line(5031), column(4)]))
+------------------------
+Step 25:
+--- System Variables (assignments) ---
+pos_t1 = double(s1, s2)
+pos_t2 = single(s7)
+nextSb_t1 = sb1
+nextSb_t2 = sb5
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16727
+                                               : SegmentID):
+                                        (arg!16727 /= s7) and
+                                        (arg!16727 /= s6) and
+                                        (arg!16727 /= s5) and
+                                        (arg!16727 /= s4) and
+                                        (arg!16727 /= s3)))
+tReservations_t1(sb2) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16728
+                                               : SegmentID):
+                                        (arg!16728 /= s7) and
+                                        (arg!16728 /= s6) and
+                                        (arg!16728 /= s5) and
+                                        ((arg!16728 = s4) or
+                                        (arg!16728 /= s3) and (arg!16728 = s2))))
+tReservations_t1(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16729
+                                               : SegmentID):
+                                        (arg!16729 /= s7) and
+                                        (arg!16729 /= s6) and
+                                        ((arg!16729 = s5) or (arg!16729 = s4))))
+tReservations_t1(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16730
+                                               : SegmentID):
+                                        (arg!16730 /= s7) and
+                                        (arg!16730 /= s6) and
+                                        (arg!16730 = s5)))
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16734
+                                               : SegmentID):
+                                        arg!16734 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = true
+tLocks_t1(sb2) = true
+tLocks_t1(sb3) = true
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = active
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t1
+sbLock_sb2 = t1
+sbLock_sb3 = t1
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s2)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label move_double_to_single_t1_sb1
+    transition at [Context: V1u, line(5119), column(5)]))
+------------------------
+Step 26:
+--- System Variables (assignments) ---
+pos_t1 = single(s2)
+pos_t2 = single(s7)
+nextSb_t1 = sb2
+nextSb_t2 = sb5
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb2) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16752
+                                               : SegmentID):
+                                        (arg!16752 /= s7) and
+                                        (arg!16752 /= s6) and
+                                        (arg!16752 /= s5) and
+                                        ((arg!16752 = s4) or
+                                        (arg!16752 /= s3) and (arg!16752 = s2))))
+tReservations_t1(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16753
+                                               : SegmentID):
+                                        (arg!16753 /= s7) and
+                                        (arg!16753 /= s6) and
+                                        ((arg!16753 = s5) or (arg!16753 = s4))))
+tReservations_t1(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16754
+                                               : SegmentID):
+                                        (arg!16754 /= s7) and
+                                        (arg!16754 /= s6) and
+                                        (arg!16754 = s5)))
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16758
+                                               : SegmentID):
+                                        arg!16758 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = true
+tLocks_t1(sb3) = true
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t1
+sbLock_sb3 = t1
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s2)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label move_single_to_double_t1_sb2
+    transition at [Context: V1u, line(5038), column(4)]))
+------------------------
+Step 27:
+--- System Variables (assignments) ---
+pos_t1 = double(s2, s4)
+pos_t2 = single(s7)
+nextSb_t1 = sb2
+nextSb_t2 = sb5
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb2) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16776
+                                               : SegmentID):
+                                        (arg!16776 /= s7) and
+                                        (arg!16776 /= s6) and
+                                        (arg!16776 /= s5) and
+                                        ((arg!16776 = s4) or
+                                        (arg!16776 /= s3) and (arg!16776 = s2))))
+tReservations_t1(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16777
+                                               : SegmentID):
+                                        (arg!16777 /= s7) and
+                                        (arg!16777 /= s6) and
+                                        ((arg!16777 = s5) or (arg!16777 = s4))))
+tReservations_t1(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16778
+                                               : SegmentID):
+                                        (arg!16778 /= s7) and
+                                        (arg!16778 /= s6) and
+                                        (arg!16778 = s5)))
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16782
+                                               : SegmentID):
+                                        arg!16782 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = true
+tLocks_t1(sb3) = true
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = active
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t1
+sbLock_sb3 = t1
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s2)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label move_double_to_single_t1_sb2
+    transition at [Context: V1u, line(5130), column(5)]))
+------------------------
+Step 28:
+--- System Variables (assignments) ---
+pos_t1 = single(s4)
+pos_t2 = single(s7)
+nextSb_t1 = sb3
+nextSb_t2 = sb5
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16800
+                                               : SegmentID):
+                                        (arg!16800 /= s7) and
+                                        (arg!16800 /= s6) and
+                                        ((arg!16800 = s5) or (arg!16800 = s4))))
+tReservations_t1(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16801
+                                               : SegmentID):
+                                        (arg!16801 /= s7) and
+                                        (arg!16801 /= s6) and
+                                        (arg!16801 = s5)))
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16805
+                                               : SegmentID):
+                                        arg!16805 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = true
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t_none
+sbLock_sb3 = t1
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s2)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label move_single_to_double_t1_sb3
+    transition at [Context: V1u, line(5045), column(4)]))
+------------------------
+Step 29:
+--- System Variables (assignments) ---
+pos_t1 = double(s4, s5)
+pos_t2 = single(s7)
+nextSb_t1 = sb3
+nextSb_t2 = sb5
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16823
+                                               : SegmentID):
+                                        (arg!16823 /= s7) and
+                                        (arg!16823 /= s6) and
+                                        ((arg!16823 = s5) or (arg!16823 = s4))))
+tReservations_t1(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16824
+                                               : SegmentID):
+                                        (arg!16824 /= s7) and
+                                        (arg!16824 /= s6) and
+                                        (arg!16824 = s5)))
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16828
+                                               : SegmentID):
+                                        arg!16828 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = true
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = active
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t_none
+sbLock_sb3 = t1
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s2)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)
+------------------------
+Transition Information: 
+(module instance at [Context: V1u, line(5580), column(32)]
+  (label move_double_to_single_t1_sb3
+    transition at [Context: V1u, line(5141), column(5)]))
+------------------------
+Step 30:
+--- System Variables (assignments) ---
+pos_t1 = single(s5)
+pos_t2 = single(s7)
+nextSb_t1 = sb4
+nextSb_t2 = sb5
+tReservations_t1(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t1(sb4) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16846
+                                               : SegmentID):
+                                        (arg!16846 /= s7) and
+                                        (arg!16846 /= s6) and
+                                        (arg!16846 = s5)))
+tReservations_t1(sb5) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb0) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb1) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb2) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb3) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb4) = SwitchboxIDrsL_SegmentIDSet_map_nil
+tReservations_t2(sb5) =
+SwitchboxIDrsL_SegmentIDSet_map_range((LAMBDA (arg!16850
+                                               : SegmentID):
+                                        arg!16850 = s7))
+tLocks_t1(sb0) = false
+tLocks_t1(sb1) = false
+tLocks_t1(sb2) = false
+tLocks_t1(sb3) = false
+tLocks_t1(sb4) = false
+tLocks_t1(sb5) = false
+tLocks_t2(sb0) = false
+tLocks_t2(sb1) = false
+tLocks_t2(sb2) = false
+tLocks_t2(sb3) = false
+tLocks_t2(sb4) = false
+tLocks_t2(sb5) = false
+sbSensor_sb0 = passive
+sbSensor_sb1 = passive
+sbSensor_sb2 = passive
+sbSensor_sb3 = passive
+sbSensor_sb4 = passive
+sbSensor_sb5 = passive
+sbReservations_sb0(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb0(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb0(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s1) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb1(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb1(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s2) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s3) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb2(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb2(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb3(s4) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s5) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb3(s7) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb4(s5) = SegmentID_TrainID_map_range(t1)
+sbReservations_sb4(s6) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb4(s7) = SegmentID_TrainID_map_range(t_none)
+sbReservations_sb5(s1) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s2) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s3) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s4) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s5) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s6) = SegmentID_TrainID_map_nil
+sbReservations_sb5(s7) = SegmentID_TrainID_map_range(t2)
+sbLock_sb0 = t_none
+sbLock_sb1 = t_none
+sbLock_sb2 = t_none
+sbLock_sb3 = t_none
+sbLock_sb4 = t_none
+sbLock_sb5 = t_none
+sbConnection_sb0 = border(s1)
+sbConnection_sb1 = conn(s1, s2)
+sbConnection_sb2 = conn(s2, s4)
+sbConnection_sb3 = conn(s4, s5)
+sbConnection_sb4 = conn(s5, s7)
+sbConnection_sb5 = border(s7)

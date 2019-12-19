@@ -1,0 +1,302 @@
+scheme Base =
+  class
+    type
+      Route = SegmentID -m-> SegmentID,
+      Position == single(seg : SegmentID) |
+      	       	  double(tlseg : SegmentID, hdseg : SegmentID),
+      Switchboxes = SwitchboxID' -m-> SwitchboxID', 
+      SbReservation = SegmentID -m-> TrainID, 
+      TReservation = SwitchboxID' -m-> SegmentIDSet, 
+      SegmentIDSet = SegmentID-set, 
+      TLock = SwitchboxID'-set, 
+      SegmentID == s1 | s2 | s3 | s4 | s5, -- configured
+      TrainID' = {| t : TrainID :- t ~= t_none |}, 
+      TrainID == t1 | t2 | t_none, -- configured
+      SwitchboxID' = {| sb : SwitchboxID :- sb ~= sb_none |},
+      SwitchboxID == sb0 | sb1 | sb2 | sb3 | sb4 | sb5 | sb_none, -- configured
+      SensorState == active | passive, 
+      SwitchboxConnection :: 
+        stem : SegmentID
+	branches : SegmentID-set, 
+      SwitchboxDesc = SwitchboxID' -m-> SwitchboxConnection, 
+      Connection == 
+        conn(fst : SegmentID, snd : SegmentID) | 
+        border(e : SegmentID), 
+      Network = Connection-set 
+
+
+    value 
+      network : Network = {conn(s1,s3),conn(s2,s3), -- configured
+      	      		        conn(s3,s4),conn(s3,s5),
+				border(s1),border(s2),
+				border(s4),border(s5)},
+      netSwitchboxes : SwitchboxDesc = [sb0 +> mk_SwitchboxConnection(s1,{}), -- configured
+				     sb1 +> mk_SwitchboxConnection(s2,{}),
+      		    		     sb2 +> mk_SwitchboxConnection(s3,{s1,s2}),
+				     sb3 +> mk_SwitchboxConnection(s3,{s4,s5}),
+				     sb4 +> mk_SwitchboxConnection(s4,{}),
+				     sb5 +> mk_SwitchboxConnection(s5,{})],
+
+      /* SAFETY INVARIANTS */
+      no_collide : TrainID >< TrainID >< Position >< Position -> Bool
+      no_collide(tid1, tid2, pos1, pos2) is 
+        tid1 ~= tid2 =>
+	segments_of_pos(pos1) inter segments_of_pos(pos2) = {},
+      	 
+      no_derail : Position >< Connection -> Bool
+      no_derail(pos, c) is 
+        ~is_single_pos(pos) => 
+	(c = conn(hdseg(pos), tlseg(pos)) \/ c = conn(tlseg(pos), hdseg(pos))),
+
+
+      /* STATE INVARIANTS */
+      cons_res_pos : TReservation >< Position >< SwitchboxID >< Switchboxes-> Bool
+      cons_res_pos(res, pos, nextsb, switchboxes) is
+        case pos of
+	  single(seg) -> seg isin res(nextsb),
+	  double(tlseg,hdseg) -> hdseg isin res(nextsb) /\ tlseg isin res(nextsb)
+	  		      /\ nextsb isin dom(switchboxes) /\ hdseg isin res(switchboxes(nextsb))
+	end,
+
+      cons_locks_pos : TLock >< Position >< SwitchboxID -> Bool
+      cons_locks_pos(locks, pos, nextsb) is
+        case pos of
+	  double(tlsg,hdseg) -> nextsb isin locks,
+	  _ -> true
+	end,
+
+      cons_res_route : TReservation >< Route -> Bool
+      cons_res_route(res, route) is 
+        res ~= [] /\ 
+        (all sb : SwitchboxID' :- sb isin dom(res) => 
+          res(sb) <<= segments_of_route(route)),
+
+      cons_locks_switchboxes : TLock >< Switchboxes -> Bool
+      cons_locks_switchboxes(locks, switchboxes) is 
+        locks <<= sbs_of_sboxmap(switchboxes) /\ 
+        (all sb : SwitchboxID' :- sb isin (rng(switchboxes) \ dom(switchboxes)) => 
+          sb ~isin locks),
+
+      cons_pos_network : Position >< Network -> Bool
+      cons_pos_network(pos,net) is
+        case pos of
+	  single(seg) -> (exists conn : Connection :- conn isin net /\
+	    seg isin segments_of_conn(conn)),
+	  double(seg1,seg2) -> are_neighbors_in_net(seg1,seg2,net)
+	end,
+
+      cons_pos_route : Position >< Route -> Bool
+      cons_pos_route(pos,route) is
+        case pos of
+          single(seg) -> seg isin dom(route) \/ seg isin rng(route),
+	  double(tlseg,hdseg) -> tlseg isin dom(route) /\ route(tlseg) = hdseg
+	end,
+
+      cons_nextsb_switchboxes : SwitchboxID >< Switchboxes -> Bool
+      cons_nextsb_switchboxes(nextsb, switchboxes) is
+        nextsb isin dom(switchboxes) \/ nextsb isin rng(switchboxes),
+
+      cons_nextsb_pos : SwitchboxID >< Position >< SwitchboxDesc -> Bool
+      cons_nextsb_pos(nextsb, pos, sbdesc) is 
+        nextsb isin dom(sbdesc) /\ 
+        case pos of
+          single(seg) ->
+	    seg isin segments_of_sbconn(sbdesc(nextsb)),
+	  double(tlseg, hdseg) ->
+	    hdseg isin segments_of_sbconn(sbdesc(nextsb)) /\
+	    tlseg isin segments_of_sbconn(sbdesc(nextsb))
+	end,
+
+      cons_connection_netswitchboxes : Connection >< SwitchboxConnection -> Bool
+      cons_connection_netswitchboxes(connection, sbconn) is
+	case connection of
+	  conn(fst, snd) -> is_possible_conn(fst, snd, sbconn),
+          border(e) -> branches(sbconn) = {}
+	end,
+
+     cons_sb_res_netswitchboxes : SbReservation >< SwitchboxConnection -> Bool
+     cons_sb_res_netswitchboxes(res, sbconn) is
+       dom res = segments_of_sbconn(sbconn),
+
+     cons_t_sb_res : TrainID >< SwitchboxID >< TReservation >< SbReservation -> Bool
+     cons_t_sb_res(t, sb, tReservations, sbReservations) is
+        sb isin dom(tReservations) =>
+          (all seg : SegmentID :- seg isin tReservations(sb) =>
+	    seg isin dom(sbReservations) /\ sbReservations(seg) = t),
+
+      cons_sb_t_res : TrainID >< SwitchboxID >< TReservation >< SbReservation -> Bool
+      cons_sb_t_res(t, sb, tReservations, sbReservations) is
+        (all seg : SegmentID :- seg isin dom(sbReservations) =>
+	  t ~= t_none /\ t = sbReservations(seg) =>
+	    sb isin dom(tReservations) /\ seg isin tReservations(sb)),
+
+      cons_res : TrainID >< SwitchboxID >< TReservation >< SbReservation -> Bool
+      cons_res(t, sb, tReservations, sbReservations) is
+        cons_t_sb_res(t, sb, tReservations, sbReservations) /\
+	cons_sb_t_res(t, sb, tReservations, sbReservations),
+
+      cons_locks : TrainID >< SwitchboxID >< TLock >< TrainID -> Bool
+      cons_locks(t, sb, tLocks, sbLock) is
+        (sb isin tLocks => sbLock = t) /\
+	(t = sbLock => sb isin tLocks),
+
+      cons_sensor_pos : Position >< SensorState -> Bool
+      cons_sensor_pos(pos, sensor) is
+	case pos of
+	  double(_,_) -> sensor = active,
+	  _ -> true
+	end,
+
+      /* GUARDS */
+      t_can_move : SegmentID >< SwitchboxID >< Route >< Switchboxes >< TLock >< TReservation -> Bool
+      t_can_move(posseg, nextsb, route, switchboxes, locks, res) is 
+	nextsb isin locks /\ 
+        nextsb isin dom(switchboxes) /\ 
+        posseg isin dom(route) /\ 
+        route(posseg) isin res(nextsb) /\ 
+        route(posseg) isin res(switchboxes(nextsb)),
+
+      t_is_at_end : Route >< Position -> Bool
+      t_is_at_end(route, pos) is
+        case pos of
+	  single(seg) ->
+	    let
+	      domain = dom route,
+	      range = rng route
+	    in
+	      seg isin range \ domain
+	    end,
+	  _ -> false
+	end,
+      	 
+      t_can_reserve : Position >< Switchboxes >< Route >< TReservation >< SegmentID >< SwitchboxID -> Bool
+      t_can_reserve(pos, switchboxes, route, res, seg, sb) is
+        is_single_pos(pos) /\ 
+        ~(sb isin dom(res) /\ seg isin res(sb)) /\ 
+        (sb isin dom(switchboxes) \/ sb isin rng(switchboxes)) /\ 
+        seg isin segments_of_route(route), 
+
+      t_can_reserve_restricted : Position >< SwitchboxID >< Switchboxes >< Route >< TReservation >< SegmentID >< SwitchboxID -> Bool
+      t_can_reserve_restricted(pos, nextsb, switchboxes, route, res, segm, sb) is
+        is_single_pos(pos) /\ 
+        ~(sb isin dom(res) /\ segm isin res(sb)) /\
+	(nextsb isin dom(switchboxes) /\ (sb = nextsb \/ sb = switchboxes(nextsb))) /\
+	seg(pos) isin dom(route) /\ segm = route(seg(pos)), 
+
+      sb_can_reserve : SbReservation >< SegmentID -> Bool
+      sb_can_reserve(res, seg) is
+        seg isin dom(res) /\
+        res(seg) = t_none, 
+      	 
+      t_can_lock : Position >< Connection >< Route >< Switchboxes >< TReservation >< SwitchboxID >< TLock -> Bool
+      t_can_lock(pos, c, route, switchboxes, res, sb, locks) is
+        is_single_pos(pos) /\
+        sb ~isin locks /\
+	sb isin dom(switchboxes) /\ 
+        (exists seg : SegmentID :- 
+          seg isin dom(route) /\ 
+          c = conn(seg, route(seg)) /\ 
+          sb isin dom(res) /\ 
+          route(seg) isin res(sb) /\
+	  seg isin res(sb)),
+
+      t_can_lock_restricted : Position >< SwitchboxID >< Connection >< Route >< Switchboxes >< TReservation ><
+      			      SwitchboxID >< TLock -> Bool
+      t_can_lock_restricted(pos, nextsb, c, route, switchboxes, res, sb, locks) is
+        is_single_pos(pos) /\ 
+        sb ~isin locks /\
+	sb = nextsb /\
+	sb isin dom(switchboxes) /\
+	seg(pos) isin dom(route) /\
+	c = conn(seg(pos), route(seg(pos))) /\
+	sb isin dom(res) /\
+	seg(pos) isin res(sb) /\
+	route(seg(pos)) isin res(sb) /\
+	route(seg(pos)) isin res(switchboxes(sb)),
+	
+      sb_can_lock : Connection >< TrainID >< SensorState -> Bool
+      sb_can_lock(c, lock, sensor) is 
+        sensor = passive /\
+	lock = t_none, 
+      	 
+      /* UPDATERS */
+      move_pos_single : Position >< Route -> Position
+      move_pos_single(pos, route) is double(seg(pos), route(seg(pos))) 
+      pre seg(pos) isin dom(route) /\ is_single_pos(pos),
+
+      move_pos_double : Position -> Position
+      move_pos_double(pos) is single(hdseg(pos))
+      pre ~is_single_pos(pos),
+      
+      move_nextsb : SwitchboxID >< Switchboxes -> SwitchboxID
+      move_nextsb(nextsb, switchboxes) is switchboxes(nextsb)
+      pre nextsb isin dom(switchboxes),
+
+      move_t_reservations : SwitchboxID' >< TReservation -> TReservation
+      move_t_reservations(nextsb, res) is res \ {nextsb},
+
+      move_t_locks : SwitchboxID' >< TLock -> TLock
+      move_t_locks(nextsb, locks) is locks \ {nextsb},
+
+      move_sb_reservations : Position >< SbReservation -> SbReservation
+      move_sb_reservations(pos, sbres) is sbres !! [hdseg(pos) +> t_none, tlseg(pos) +> t_none]
+      pre ~is_single_pos(pos),
+
+      reserve_t : TReservation >< SwitchboxID >< SegmentID -> TReservation
+      reserve_t(res, sb, seg) is
+        if sb isin dom(res) then
+	  res !! [sb +> add_to_segset(res(sb), seg)]
+	else
+	  res !! [sb +> {seg}]
+	end,
+
+      reserve_sb : SbReservation >< TrainID >< SegmentID -> SbReservation
+      reserve_sb(res, t, seg) is res !! [seg +> t],
+
+      lock_t : TLock >< SwitchboxID -> TLock
+      lock_t(locks, sb) is locks union {sb},
+      	 
+      /* AUXILIARY */
+      are_neighbors_in_net : SegmentID >< SegmentID >< Network -> Bool
+      are_neighbors_in_net(seg1, seg2, net) is 
+        conn(seg1, seg2) isin net \/ 
+        conn(seg2, seg1) isin net, 
+      	 
+      is_possible_conn : SegmentID >< SegmentID >< SwitchboxConnection -> Bool
+      is_possible_conn(seg1, seg2, sbconn) is 
+        (seg1 = stem(sbconn) /\ seg2 isin branches(sbconn)) \/ 
+        (seg2 = stem(sbconn) /\ seg1 isin branches(sbconn)), 
+      	 
+      add_to_segset : SegmentIDSet >< SegmentID -> SegmentIDSet
+      add_to_segset(segset, seg) is segset union {seg}, 
+      	 
+      is_single_pos : Position -> Bool
+      is_single_pos(pos) is
+        case pos of
+	  single(seg) -> true,
+	  _ -> false
+	end,
+
+      segments_of_pos : Position -> SegmentID-set
+      segments_of_pos(pos) is
+        case pos of
+	  single(seg) -> {seg},
+	  double(seg1, seg2) -> {seg1, seg2} end,
+      	       	 
+      segments_of_conn : Connection -> SegmentID-set
+      segments_of_conn(connection) is 
+        case connection of
+          conn(fst, snd) -> {fst, snd},
+          border(e) -> {e}
+        end, 
+      	 
+      segments_of_sbconn : SwitchboxConnection -> SegmentID-set
+      segments_of_sbconn(sbconn) is branches(sbconn) union {stem(sbconn)}, 
+      	 
+      segments_of_route : Route -> SegmentIDSet
+      segments_of_route(route) is 
+        dom(route) union rng(route), 
+      	 
+      sbs_of_sboxmap : Switchboxes -> SwitchboxID'-set
+      sbs_of_sboxmap(switchboxes) is dom(switchboxes) union rng(switchboxes)
+end

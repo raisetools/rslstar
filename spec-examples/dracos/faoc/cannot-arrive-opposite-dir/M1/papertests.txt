@@ -1,0 +1,32 @@
+no_collide
+	0:00.40 time, 	51828 max_mem KB
+no_derail
+	0:00.39 time, 	51188 max_mem KB
+cons_res_pos
+	0:00.38 time, 	51208 max_mem KB
+cons_locks_pos
+	0:00.39 time, 	51052 max_mem KB
+cons_res_route
+	0:00.40 time, 	51580 max_mem KB
+cons_locks_switchboxes
+	0:00.40 time, 	51944 max_mem KB
+cons_pos_network
+	0:00.41 time, 	51748 max_mem KB
+cons_pos_route
+	0:00.38 time, 	51168 max_mem KB
+cons_nextsb_switchboxes
+	0:00.38 time, 	51116 max_mem KB
+cons_nextsb_pos
+	0:00.39 time, 	52028 max_mem KB
+cons_connection_netswitchboxes
+	0:00.38 time, 	51044 max_mem KB
+cons_reservations_netswitchboxes
+	0:00.39 time, 	51004 max_mem KB
+cons_t_sb_res
+	0:00.40 time, 	51780 max_mem KB
+cons_sb_t_res
+	0:00.39 time, 	51988 max_mem KB
+cons_locks
+	0:00.39 time, 	51212 max_mem KB
+cons_sensor_pos
+	0:00.39 time, 	51044 max_mem KB
