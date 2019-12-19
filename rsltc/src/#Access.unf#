@@ -1,0 +1,107 @@
+scheme Access = 
+class
+type
+SwitchboxID' = {| sb : SwitchboxID :- sb ~= sb_none |},
+SwitchboxID == sb0 | sb1 | sb2 | sb3 | sb_none,
+SwitchboxConnection :: stem : SegmentID
+branches : SegmentID-set,
+SegmentID == s1 | s2 | s3 | s4,
+SwitchboxDesc = SwitchboxID -m-> SwitchboxConnection,
+Connection == conn(fst : SegmentID, snd : SegmentID) | endpoint(e : SegmentID),
+Network = Connection-set,
+Index = {| i : Int :- i > 0 /\
+  i < 4 |},
+Route = array Index of SegmentID
+
+value
+network : Network = {conn(s1, s2), conn(s1, s3), conn(s2, s4), conn(s3, s4), endpoint(s1), endpoint(s4)},
+
+netSwitchboxes : SwitchboxDesc = [sb0 +> mk_SwitchboxConnection(s1, {}),sb1 +> mk_SwitchboxConnection(s1, {s2, s3}),sb2 +> mk_SwitchboxConnection(s4, {s2, s3}),sb3 +> mk_SwitchboxConnection(s4, {})],
+
+is_possible_conn : SegmentID >< SegmentID >< SwitchboxConnection -> Bool
+is_possible_conn(seg1, seg2, sbconn) is
+  (seg1 = stem(sbconn) /\
+  seg2 isin branches(sbconn)) \/
+  (seg2 = stem(sbconn) /\
+  seg1 isin branches(sbconn))
+transition_system
+[TS]
+local
+route_sb0 : Route,
+route_sb1 : Route,
+route_sb2 : Route,
+route_sb3 : Route,
+other_sb0 : Bool := false,
+other_sb1 : Bool := false,
+other_sb2 : Bool := false,
+other_sb3 : Bool := false,
+thing_sb0 : Int,
+thing_sb1 : Int := 1,
+thing_sb2 : Int,
+thing_sb3 : Int,
+var : Bool := false
+in
+  is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3}))
+  ==>
+  route_sb0'[1] = s1,
+  other_sb0' = false
+[=]
+  is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3}))
+  ==>
+  route_sb0'[2] = s1,
+  other_sb0' = false
+[=]
+  is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3}))
+  ==>
+  route_sb0'[3] = s1,
+  other_sb0' = false
+[=]
+  is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3}))
+  ==>
+  route_sb1'[1] = s1,
+  other_sb1' = false
+[=]
+  is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3}))
+  ==>
+  route_sb1'[2] = s1,
+  other_sb1' = false
+[=]
+  is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3}))
+  ==>
+  route_sb1'[3] = s1,
+  other_sb1' = false
+[=]
+  is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3}))
+  ==>
+  route_sb2'[1] = s1,
+  other_sb2' = false
+[=]
+  is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3}))
+  ==>
+  route_sb2'[2] = s1,
+  other_sb2' = false
+[=]
+  is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3}))
+  ==>
+  route_sb2'[3] = s1,
+  other_sb2' = false
+[=]
+  is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3}))
+  ==>
+  route_sb3'[1] = s1,
+  other_sb3' = false
+[=]
+  is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3}))
+  ==>
+  route_sb3'[2] = s1,
+  other_sb3' = false
+[=]
+  is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3}))
+  ==>
+  route_sb3'[3] = s1,
+  other_sb3' = false
+end
+
+ltl_assertion
+[prop] TS |- (all s : SegmentID :- G(is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3}))))
+end

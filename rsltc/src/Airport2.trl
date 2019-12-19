@@ -1,0 +1,63 @@
+SYM_TABLE_DECL
+Weather == Sunny | Cloudy | Stormy | Hurricane
+nat == int n where n >= 0
+Index == int i where i >= 0 &&
+  i <= 2
+const nat planeCapacity == 150
+nat numberOfPlanes
+Weather weatherConditions
+array with index-type Index and value-type bool test
+SYM_TABLE_DECL_END
+
+INIT_VAL
+numberOfPlanes == 100
+weatherConditions == Sunny
+??
+INIT_VAL_END
+
+TRANS_REL
+((weatherConditions == Stormy ||
+  weatherConditions == Hurricane &&
+  false) ||
+  ((!weatherConditions == Stormy ||
+  weatherConditions == Hurricane) &&
+  numberOfPlanes < planeCapacity)) &&
+  numberOfPlanes' == numberOfPlanes + 1 &&
+  test' == test &&
+  weatherConditions' == weatherConditions ||
+  (((weatherConditions == Stormy &&
+  false) ||
+  (weatherConditions == Hurricane &&
+  false)) ||
+  ((!weatherConditions == Stormy) &&
+  numberOfPlanes > 0)) &&
+  numberOfPlanes' == numberOfPlanes - 1 &&
+  test' == test &&
+  weatherConditions' == weatherConditions ||
+  test[1] == true &&
+  test'[2] = false &&
+  test' == test &&
+  weatherConditions' == weatherConditions &&
+  numberOfPlanes' == numberOfPlanes ||
+  weatherConditions != Sunny &&
+  weatherConditions' == Sunny &&
+  test' == test &&
+  numberOfPlanes' == numberOfPlanes ||
+  weatherConditions != Cloudy &&
+  weatherConditions' == Cloudy &&
+  test' == test &&
+  numberOfPlanes' == numberOfPlanes ||
+  weatherConditions != Stormy &&
+  weatherConditions' == Stormy &&
+  test' == test &&
+  numberOfPlanes' == numberOfPlanes ||
+  weatherConditions != Hurricane &&
+  weatherConditions' == Hurricane &&
+  test' == test &&
+  numberOfPlanes' == numberOfPlanes
+TRANS_REL_END
+
+PROP_SPEC
+Globally[numberOfPlanes <= planeCapacity &&
+  numberOfPlanes >= 0]
+PROP_SPEC_END

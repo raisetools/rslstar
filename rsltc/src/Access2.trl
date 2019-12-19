@@ -1,0 +1,238 @@
+scheme Access2 = 
+class
+type
+SwitchboxID' = {| sb : SwitchboxID :- sb ~= sb_none |},
+SwitchboxID == sb0 | sb1 | sb2 | sb3 | sb_none,
+SwitchboxConnection :: stem : SegmentID
+branches : SegmentID-set,
+SegmentID == s1 | s2 | s3 | s4,
+SwitchboxDesc = SwitchboxID -m-> SwitchboxConnection,
+Connection == conn(fst : SegmentID, snd : SegmentID) | endpoint(e : SegmentID),
+Network = Connection-set,
+Index = {| i : Int :- i > 0 /\
+  i < 4 |},
+Route = array Index of SegmentID
+
+value
+network : Network = {conn(s1, s2), conn(s1, s3), conn(s2, s4), conn(s3, s4), endpoint(s1), endpoint(s4)},
+
+netSwitchboxes : SwitchboxDesc = [sb0 +> mk_SwitchboxConnection(s1, {}),sb1 +> mk_SwitchboxConnection(s1, {s2, s3}),sb2 +> mk_SwitchboxConnection(s4, {s2, s3}),sb3 +> mk_SwitchboxConnection(s4, {})],
+
+is_possible_conn : SegmentID >< SegmentID >< SwitchboxConnection -> Bool
+is_possible_conn(seg1, seg2, sbconn) is
+  (seg1 = stem(sbconn) /\
+  seg2 isin branches(sbconn)) \/
+  (seg2 = stem(sbconn) /\
+  seg1 isin branches(sbconn))
+transition_system
+[TS]
+variable
+route_sb0 : Route,
+route_sb1 : Route,
+route_sb2 : Route,
+route_sb3 : Route,
+other_sb0 : Bool,
+other_sb1 : Bool,
+other_sb2 : Bool,
+other_sb3 : Bool,
+thing_sb0 : Int,
+thing_sb1 : Int,
+thing_sb2 : Int,
+thing_sb3 : Int,
+var : Bool
+init_constraint
+other_sb0 = false /\
+other_sb1 = false /\
+other_sb2 = false /\
+other_sb3 = false /\
+thing_sb1 = 1 /\
+var = false
+transition_relation
+is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3})) /\
+  ((((((((((((((route_sb0'[1] = s1) /\
+  other_sb0' = false) /\
+  var' = var) /\
+  thing_sb3' = thing_sb3) /\
+  thing_sb2' = thing_sb2) /\
+  thing_sb1' = thing_sb1) /\
+  thing_sb0' = thing_sb0) /\
+  other_sb3' = other_sb3) /\
+  other_sb2' = other_sb2) /\
+  other_sb1' = other_sb1) /\
+  route_sb3' = route_sb3) /\
+  route_sb2' = route_sb2) /\
+  route_sb1' = route_sb1) /\
+  route_sb0' = route_sb0) \/
+  (is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3})) /\
+  ((((((((((((((route_sb0'[2] = s1) /\
+  other_sb0' = false) /\
+  var' = var) /\
+  thing_sb3' = thing_sb3) /\
+  thing_sb2' = thing_sb2) /\
+  thing_sb1' = thing_sb1) /\
+  thing_sb0' = thing_sb0) /\
+  other_sb3' = other_sb3) /\
+  other_sb2' = other_sb2) /\
+  other_sb1' = other_sb1) /\
+  route_sb3' = route_sb3) /\
+  route_sb2' = route_sb2) /\
+  route_sb1' = route_sb1) /\
+  route_sb0' = route_sb0) \/
+  (is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3})) /\
+  ((((((((((((((route_sb0'[3] = s1) /\
+  other_sb0' = false) /\
+  var' = var) /\
+  thing_sb3' = thing_sb3) /\
+  thing_sb2' = thing_sb2) /\
+  thing_sb1' = thing_sb1) /\
+  thing_sb0' = thing_sb0) /\
+  other_sb3' = other_sb3) /\
+  other_sb2' = other_sb2) /\
+  other_sb1' = other_sb1) /\
+  route_sb3' = route_sb3) /\
+  route_sb2' = route_sb2) /\
+  route_sb1' = route_sb1) /\
+  route_sb0' = route_sb0) \/
+  (is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3})) /\
+  ((((((((((((((route_sb1'[1] = s1) /\
+  other_sb1' = false) /\
+  var' = var) /\
+  thing_sb3' = thing_sb3) /\
+  thing_sb2' = thing_sb2) /\
+  thing_sb1' = thing_sb1) /\
+  thing_sb0' = thing_sb0) /\
+  other_sb3' = other_sb3) /\
+  other_sb2' = other_sb2) /\
+  other_sb0' = other_sb0) /\
+  route_sb3' = route_sb3) /\
+  route_sb2' = route_sb2) /\
+  route_sb1' = route_sb1) /\
+  route_sb0' = route_sb0) \/
+  (is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3})) /\
+  ((((((((((((((route_sb1'[2] = s1) /\
+  other_sb1' = false) /\
+  var' = var) /\
+  thing_sb3' = thing_sb3) /\
+  thing_sb2' = thing_sb2) /\
+  thing_sb1' = thing_sb1) /\
+  thing_sb0' = thing_sb0) /\
+  other_sb3' = other_sb3) /\
+  other_sb2' = other_sb2) /\
+  other_sb0' = other_sb0) /\
+  route_sb3' = route_sb3) /\
+  route_sb2' = route_sb2) /\
+  route_sb1' = route_sb1) /\
+  route_sb0' = route_sb0) \/
+  (is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3})) /\
+  ((((((((((((((route_sb1'[3] = s1) /\
+  other_sb1' = false) /\
+  var' = var) /\
+  thing_sb3' = thing_sb3) /\
+  thing_sb2' = thing_sb2) /\
+  thing_sb1' = thing_sb1) /\
+  thing_sb0' = thing_sb0) /\
+  other_sb3' = other_sb3) /\
+  other_sb2' = other_sb2) /\
+  other_sb0' = other_sb0) /\
+  route_sb3' = route_sb3) /\
+  route_sb2' = route_sb2) /\
+  route_sb1' = route_sb1) /\
+  route_sb0' = route_sb0) \/
+  (is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3})) /\
+  ((((((((((((((route_sb2'[1] = s1) /\
+  other_sb2' = false) /\
+  var' = var) /\
+  thing_sb3' = thing_sb3) /\
+  thing_sb2' = thing_sb2) /\
+  thing_sb1' = thing_sb1) /\
+  thing_sb0' = thing_sb0) /\
+  other_sb3' = other_sb3) /\
+  other_sb1' = other_sb1) /\
+  other_sb0' = other_sb0) /\
+  route_sb3' = route_sb3) /\
+  route_sb2' = route_sb2) /\
+  route_sb1' = route_sb1) /\
+  route_sb0' = route_sb0) \/
+  (is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3})) /\
+  ((((((((((((((route_sb2'[2] = s1) /\
+  other_sb2' = false) /\
+  var' = var) /\
+  thing_sb3' = thing_sb3) /\
+  thing_sb2' = thing_sb2) /\
+  thing_sb1' = thing_sb1) /\
+  thing_sb0' = thing_sb0) /\
+  other_sb3' = other_sb3) /\
+  other_sb1' = other_sb1) /\
+  other_sb0' = other_sb0) /\
+  route_sb3' = route_sb3) /\
+  route_sb2' = route_sb2) /\
+  route_sb1' = route_sb1) /\
+  route_sb0' = route_sb0) \/
+  (is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3})) /\
+  ((((((((((((((route_sb2'[3] = s1) /\
+  other_sb2' = false) /\
+  var' = var) /\
+  thing_sb3' = thing_sb3) /\
+  thing_sb2' = thing_sb2) /\
+  thing_sb1' = thing_sb1) /\
+  thing_sb0' = thing_sb0) /\
+  other_sb3' = other_sb3) /\
+  other_sb1' = other_sb1) /\
+  other_sb0' = other_sb0) /\
+  route_sb3' = route_sb3) /\
+  route_sb2' = route_sb2) /\
+  route_sb1' = route_sb1) /\
+  route_sb0' = route_sb0) \/
+  (is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3})) /\
+  ((((((((((((((route_sb3'[1] = s1) /\
+  other_sb3' = false) /\
+  var' = var) /\
+  thing_sb3' = thing_sb3) /\
+  thing_sb2' = thing_sb2) /\
+  thing_sb1' = thing_sb1) /\
+  thing_sb0' = thing_sb0) /\
+  other_sb2' = other_sb2) /\
+  other_sb1' = other_sb1) /\
+  other_sb0' = other_sb0) /\
+  route_sb3' = route_sb3) /\
+  route_sb2' = route_sb2) /\
+  route_sb1' = route_sb1) /\
+  route_sb0' = route_sb0) \/
+  (is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3})) /\
+  ((((((((((((((route_sb3'[2] = s1) /\
+  other_sb3' = false) /\
+  var' = var) /\
+  thing_sb3' = thing_sb3) /\
+  thing_sb2' = thing_sb2) /\
+  thing_sb1' = thing_sb1) /\
+  thing_sb0' = thing_sb0) /\
+  other_sb2' = other_sb2) /\
+  other_sb1' = other_sb1) /\
+  other_sb0' = other_sb0) /\
+  route_sb3' = route_sb3) /\
+  route_sb2' = route_sb2) /\
+  route_sb1' = route_sb1) /\
+  route_sb0' = route_sb0) \/
+  is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3})) /\
+  ((((((((((((((route_sb3'[3] = s1) /\
+  other_sb3' = false) /\
+  var' = var) /\
+  thing_sb3' = thing_sb3) /\
+  thing_sb2' = thing_sb2) /\
+  thing_sb1' = thing_sb1) /\
+  thing_sb0' = thing_sb0) /\
+  other_sb2' = other_sb2) /\
+  other_sb1' = other_sb1) /\
+  other_sb0' = other_sb0) /\
+  route_sb3' = route_sb3) /\
+  route_sb2' = route_sb2) /\
+  route_sb1' = route_sb1) /\
+  route_sb0' = route_sb0)))))))))))
+end
+
+ltl_assertion
+[prop_s1] TS |- G(is_possible_conn(s1, s2, mk_SwitchboxConnection(s1, {s2, s3}))),
+[prop_s2] TS |- G(is_possible_conn(s2, s2, mk_SwitchboxConnection(s1, {s2, s3}))),
+[prop_s3] TS |- G(is_possible_conn(s3, s2, mk_SwitchboxConnection(s1, {s2, s3}))),
+[prop_s4] TS |- G(is_possible_conn(s4, s2, mk_SwitchboxConnection(s1, {s2, s3})))
+end

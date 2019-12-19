@@ -1,0 +1,4 @@
+SYM_TABLE_DECL
+Weather == Sunny | Cloudy | Stormy | Hurricane
+nat == int n where n >= 0
+Index == int i where i 

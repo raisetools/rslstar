@@ -1,0 +1,40 @@
+SYM_TABLE_DECL
+Route == array with index-type Index and value-type SegmentID
+SegmentID == s1 | s2
+HERE myFunc myFunc(b, i, r) is i > 5 &&
+  b ||
+  r < 2.0HERE other other(b) is ??HERE third third(b) is ??bool myBool
+bool myBool2
+int myInt
+real myReal
+int v
+SYM_TABLE_DECL_END
+
+INIT_VAL
+myBool == false
+myBool2 == true
+myInt == 4
+myReal == 3.0
+v == 0
+INIT_VAL_END
+
+TRANS_REL
+(myInt > 5 &&
+  myBool ||
+  myReal < 2.0) &&
+  ((7 > 5 &&
+  myBool2 ||
+  3.0 < 2.0) &&
+  (7 > 5 &&
+  true ||
+  3.0 < 2.0)) &&
+  v' == 5 &&
+  myReal' == myReal &&
+  myInt' == myInt &&
+  myBool2' == myBool2 &&
+  myBool' == myBool
+TRANS_REL_END
+
+PROP_SPEC
+
+PROP_SPEC_END

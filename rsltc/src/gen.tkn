@@ -1,0 +1,8 @@
+id
+int_lit
+real_lit
+text_lit
+char_lit
+eofile
+nextunit
+filename

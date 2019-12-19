@@ -1,0 +1,23 @@
+scheme Rel = 
+class
+transition_system
+[TS]
+variable
+var : Int,
+thing : Int
+init_constraint
+var = 1 /\
+  thing = 2
+transition_relation
+thing = 2 /\
+  (((thing = 1 /\
+  var' = 2) \/
+  ((~(thing = 1)) /\
+  var' = 3)) /\
+  thing' = thing) \/
+  thing = 3 /\
+  (var' = 4 /\
+  thing' = thing)
+end
+
+end
