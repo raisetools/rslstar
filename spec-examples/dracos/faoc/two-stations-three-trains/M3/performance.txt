@@ -1,0 +1,10 @@
+no_collide
+	6:22.77 time, 	406364 max_mem KB
+no_derail
+	6:06.38 time, 	389636 max_mem KB
+finish_reserve
+	7:15.13 time, 	390604 max_mem KB
+finish_switchlock
+	7:05.31 time, 	390992 max_mem KB
+deadlock_check
+	5:37.01 time, 	388132 max_mem KB

@@ -1,0 +1,194 @@
+Base
+scheme Testing = extend Base with
+  class
+    value
+      route[t : TrainID'] : Route,
+      switchboxes[t : TrainID'] : Switchboxes,
+      
+      /* TESTING */
+      cons_switchboxes_route : Switchboxes >< Route >< SwitchboxDesc -> Bool
+      cons_switchboxes_route(switchboxes, route, sbdesc) is 
+        sbs_pair_with_segments(route, switchboxes, sbdesc) /\ 
+        segments_pair_with_sbs(route, switchboxes, sbdesc), 
+
+      network_wf : Network -> Bool
+      network_wf(net) is 
+        net ~= {} /\
+	no_loops(conns_of_net(net)) /\
+        (all connection : Connection :- connection isin net => 
+          is_connected(connection, net) /\ 
+          case connection of
+	    conn(segm1, segm2) -> 
+              conn(segm2, segm1) ~isin net,
+            border(e) -> 
+              (~is_fst_in_conn(e, net) /\ is_snd_in_conn(e, net)) \/ 
+              (is_fst_in_conn(e, net) /\ ~is_snd_in_conn(e, net))
+           end),
+
+      cons_sb_desc_net : SwitchboxDesc >< Network -> Bool
+      cons_sb_desc_net(sbdesc, net) is 
+        (all sbconn : SwitchboxConnection :- sbconn isin rng(sbdesc) => 
+          (all seg : SegmentID :- seg isin branches(sbconn) =>
+	    are_neighbors_in_net(stem(sbconn), seg, net)))
+	/\ 
+        (all c : Connection :- c isin net =>
+	  (exists sbconn : SwitchboxConnection :-
+	    sbconn isin rng(sbdesc) /\ 
+            conn_matches_sb_conn(c, sbconn)))
+	/\ 
+        (all sbconn : SwitchboxConnection :- sbconn isin rng(sbdesc) => 
+          (exists c : Connection :-
+	    c isin net /\ 
+            conn_matches_sb_conn(c, sbconn)))
+	/\ 
+        (all sb : SwitchboxID :- sb isin dom(sbdesc) =>
+	  ~(exists sb2 : SwitchboxID :-
+	    sb2 isin dom(sbdesc) /\ 
+            sb2 ~= sb /\ 
+            sbdesc(sb) = sbdesc(sb2))),
+      	 
+      cons_route_network : Route >< Network -> Bool
+      cons_route_network(route, net) is
+        card(dom(route) \ rng(route)) = 1 /\ card(rng(route) \ dom(route)) = 1 /\
+        (all seg : SegmentID :- seg isin dom(route) =>
+	  are_neighbors_in_net(seg, route(seg), net)),
+      	 
+      cons_switchboxes_netswitchboxes : Switchboxes >< SwitchboxDesc -> Bool
+      cons_switchboxes_netswitchboxes(switchboxes, sbdesc) is
+        card(dom(switchboxes) \ rng(switchboxes)) = 1 /\ card(rng(switchboxes) \ dom(switchboxes)) = 1 /\
+        (all sb : SwitchboxID :- sb isin dom(switchboxes) => 
+          are_adjacent_in_sbdesc(sb, switchboxes(sb), sbdesc)), 
+
+
+      /* AUX TESTING*/
+      conn_matches_sb_conn : Connection >< SwitchboxConnection -> Bool
+      conn_matches_sb_conn(c, sbconn) is 
+        case c of
+          border(e) -> 
+            branches(sbconn) = {} /\ stem(sbconn) = e,
+          conn(segm1, segm2) -> 
+            is_possible_conn(segm1, segm2, sbconn)
+        end,
+
+      sbs_pair_with_segments: Route >< Switchboxes >< SwitchboxDesc -> Bool
+      sbs_pair_with_segments(route, switchboxes, sbdesc) is 
+        (all sb : SwitchboxID :- 
+          sb isin sbs_of_sboxmap(switchboxes) /\ 
+          sb isin dom(sbdesc) /\ 
+          branches(sbdesc(sb)) ~= {} => 
+            (exists seg : SegmentID :- 
+              seg isin dom(route) /\ 
+              is_possible_conn(seg, route(seg), sbdesc(sb)))), 
+      	 
+      segments_pair_with_sbs : Route >< Switchboxes >< SwitchboxDesc -> Bool
+      segments_pair_with_sbs(route, switchboxes, sbdesc) is 
+        (all seg : SegmentID :- seg isin dom(route) => 
+          (exists sb : SwitchboxID :- 
+            sb isin sbs_of_sboxmap(switchboxes) /\ 
+            sb isin dom(sbdesc) /\ 
+            is_possible_conn(seg, route(seg), sbdesc(sb))))
+	/\ 
+        (all seg : SegmentID :- seg isin rng(route) \ dom(route) => 
+          (exists swb1 : SwitchboxID :- 
+            swb1 isin sbs_of_sboxmap(switchboxes) /\ 
+            swb1 isin dom(sbdesc) /\ 
+              (exists swb2 : SwitchboxID :- 
+                swb2 isin sbs_of_sboxmap(switchboxes) /\ 
+                swb2 isin dom(sbdesc) /\ swb1 ~= swb2 /\ 
+                seg isin segments_of_sbconn(sbdesc(swb1)) /\ 
+                seg isin segments_of_sbconn(sbdesc(swb2))))),
+
+      is_fst_in_conn : SegmentID >< Network -> Bool
+      is_fst_in_conn(segment, net) is 
+        (exists connection : Connection :-
+	  connection isin net /\ 
+          case connection of
+            conn(segm1, segm2) -> segment = segm1,
+            _ -> false
+          end), 
+      	 
+      is_snd_in_conn : SegmentID >< Network -> Bool
+      is_snd_in_conn(segment, net) is 
+        (exists connection : Connection :- 
+          connection isin net /\ 
+          case connection of
+            conn(segm1, segm2) -> segment = segm2,
+            _ -> false
+          end),
+
+      is_double_conn : Connection -> Bool
+      is_double_conn(c) is 
+        case c of
+          conn(seg1, seg2) -> true,
+          _ -> false
+        end, 
+      	  
+      no_loops : Network -> Bool
+      no_loops(net) is
+        net = {} \/
+        let head = hd net, tail = net \ {head}, lookFor = fst(head), neighbour = snd(head) in
+	  no_loops_aux(lookFor, neighbour, tail)
+	end,
+
+      no_loops_aux : SegmentID >< SegmentID >< Network -> Bool
+      no_loops_aux(lookFor, neighbour, net) is
+        net = {} \/
+        (all c : Connection :- c isin net /\ fst(c) = neighbour => 
+          snd(c) ~= lookFor /\ no_loops_aux(lookFor, snd(c), net \ {c})),
+
+      is_connected : Connection >< Network -> Bool
+      is_connected(c, net) is 
+        case c of
+          conn(segm1, segm2) -> 
+            (exists c2 : Connection :- 
+              c2 isin net /\ c2 ~= c /\ 
+              segm1 isin segments_of_conn(c2)) /\ 
+            (exists c2 : Connection :- 
+              c2 isin net /\ c2 ~= c /\ 
+              segm2 isin segments_of_conn(c2)),
+          border(segm) -> 
+            (exists c2 : Connection :- 
+              c2 isin net /\ is_double_conn(c2) /\ 
+              segm isin segments_of_conn(c2))
+        end,
+
+      conns_of_net : Network -> Network
+      conns_of_net(net) is
+        if net = {} then {} else 
+          let head = hd net, rest = net \ {head} in
+	    case head of
+	      conn(fst,snd) -> {head} union conns_of_net(rest),
+	      _ -> conns_of_net(rest)
+	    end
+	  end
+	end,
+
+      are_adjacent_in_sbdesc : SwitchboxID >< SwitchboxID >< SwitchboxDesc -> Bool
+      are_adjacent_in_sbdesc(sbox1, sbox2, sbdesc) is
+        sbox1 isin dom(sbdesc) /\ sbox2 isin dom(sbdesc) /\
+        segments_of_sbconn(sbdesc(sbox1)) inter segments_of_sbconn(sbdesc(sbox2)) ~= {}
+	
+    axiom -- configured
+    route[t1] = [s1+>s2, s2+>s4, s4+>s5],
+    route[t2] = [s2+>s4, s4+>s5, s5+>s7],
+    route[t3] = [s7+>s6, s6+>s4, s4+>s3],
+    switchboxes[t1] = [sb1+>sb2, sb2+>sb3, sb3+>sb4],
+    switchboxes[t2] = [sb2+>sb3, sb3+>sb4, sb4+>sb5],
+    switchboxes[t3] = [sb4+>sb3, sb3+>sb2, sb2+>sb1]
+      
+    test_case
+    [network_wf]
+      network_wf(network),
+      
+    [cons_sb_desc_net]
+      cons_sb_desc_net(netSwitchboxes, network),
+    
+    [cons_route_network]
+      (all t : TrainID' :- cons_route_network(route[t], network)),
+      
+    [cons_switchboxes_netswitchboxes]
+      (all t : TrainID' :- cons_switchboxes_netswitchboxes(switchboxes[t], netSwitchboxes)),
+      
+    [cons_switchboxes_route]
+      (all t : TrainID' :- cons_switchboxes_route(switchboxes[t], route[t], netSwitchboxes))
+  end
