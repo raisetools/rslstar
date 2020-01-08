@@ -6,11 +6,11 @@ This file gives an overview of the specification examples in the subdirectories 
 | ------------- | ------------- |
 | Figure 4  | cannot-arrive-opposite-dir  |
 | Figure 5  | cannot-arrive-same-dir   |
-| Figure 11  | station-same-dir   |
-| Figure 12  | station-opposite-dir   |
-| Figure 13  | open-line-same-dir   |
-| Figure 14  | open-line-opposite-dir   |
-| Figure 15  | no-derail-station   |
-| Figure 21   | two-stations-opposite-dir  |
-| Figure 25   | two-stations-same-dir   |
-| Figure 26   | two-stations-three-trains   |
+| Figure 12  | station-same-dir   |
+| Figure 13  | station-opposite-dir   |
+| Figure 14  | open-line-same-dir   |
+| Figure 15  | open-line-opposite-dir   |
+| Figure 16  | no-derail-station   |
+| Figure 22   | two-stations-opposite-dir  |
+| Figure 26   | two-stations-same-dir   |
+| Figure 27   | two-stations-three-trains   |
