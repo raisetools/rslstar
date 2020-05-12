@@ -380,114 +380,6 @@ scheme OneStation =
       (all t : TrainID_prime :- req[t] = sb_none) /\
       (all sb : SwitchboxID_prime :- ack[sb] = t_none) /\
       (all sb : SwitchboxID_prime :- nack[sb] = t_none)
-    strengthening_invariants
-      /* STRENGTHENING INVARIANTS */
-      -- the train has at least the reservations necessary for its position
-      (all t : TrainID_prime :- cons_res_pos(tNextSbRes[t], tNextNextSbRes[t], hdPos[t], tlPos[t])),
-
-     -- the next train reservations are consistent with the switchbox reservation (train never has a reservation that the switchbox does not)
-      (all t : TrainID_prime, sb : SwitchboxID_prime, idx : SbIndex :-
-        sb = nextSb[t] => cons_nextres_t_sb(t, tNextSbRes[t], sbReservations[sb], sbSegments[sb], idx, reserveNextEvent)),
-
-     -- the next next train reservation is consistent with the switchbox reservation
-      (all t : TrainID_prime, sb : SwitchboxID_prime, i : RouteIndexOneLess, idx : SbIndex :-
-        (i = index[t] /\ sb = switchboxes[t][i]) => cons_nextnextres_t_sb(t, tNextNextSbRes[t], sbReservations[sb], sbSegments[sb], idx, reserveNextNextEvent)),
-
-      -- the train has its necessary locks (only if it is in a double position)
-      (all t : TrainID_prime :- cons_locks_pos(tNextLocked[t], hdPos[t], tlPos[t])),
-
-      -- the train's position is consistent with the segments of the route
-      (all t : TrainID_prime, i : RouteIndexFromOne :-
-        i = index[t] => cons_pos_route(hdPos[t], tlPos[t], route[t], i)),
-
-      -- the current connection at a switchbox is consistent with the segments that switchbox is responsible for 
-      (all sb : SwitchboxID_prime :- cons_connection_segments(sbSegments[sb], sbConnection[sb])),
-
-      -- the train's next switchbox is consistent with the index and the switchboxes
-      (all t : TrainID_prime, i : RouteIndexFromOne :-
-        i = index[t] => cons_nextsb_index(nextSb[t], switchboxes[t], i)),
-
-      -- sb locks are consistent with train locks
-      (all t : TrainID_prime, sb : SwitchboxID_prime :- sb = nextSb[t] => cons_locks(tNextLocked[t], t, sbLock[sb])), -- could be strengthened
-
-      -- max one ack/nack/req true at any time
-      (all swb1, swb2 : SwitchboxID_prime, tr1, tr2 : TrainID_prime :-
-        (swb2 ~= swb1 /\ tr1 ~= tr2) => cons_ack_and_nack(ack[swb1], ack[swb2], nack[swb1], nack[swb2], req[tr1], req[tr2])),
-
-      -- when a train has a lock then the next sb is locked in the correct connection
-      (all t : TrainID_prime, sb : SwitchboxID_prime, i : RouteIndexFromOne :-
-        (sb = nextSb[t] /\ i = index[t]) => cons_lock_conn(tNextLocked[t], sbConnection[sb], route[t], i)),
-
-      -- end switchbox never locked
-      (all sb : SwitchboxID_prime :- end_sb_cannot_lock(sbLock[sb], sbSegments[sb])),
-
-      -- during reserve next event or switchlock event, only requests to and ack/nack from the train's next sb
-      (all t : TrainID_prime, sb : SwitchboxID_prime :-
-        (reserveNextEvent \/ switchLockEvent) => cons_nextresevent_comm(t, sb, req[t], ack[sb], nack[sb], nextSb[t])),
-
-      -- during reserve next next event, only requests to and ack/nack from the train's next next sb
-      (all t : TrainID_prime, sb : SwitchboxID_prime, i : RouteIndexFromOne :-
-        (reserveNextNextEvent /\ i = index[t] /\ switchboxes[t][i] ~= sb_none) =>
-	  cons_nextresevent_comm(t, sb, req[t], ack[sb], nack[sb], switchboxes[t][i])),
-
-      -- if there are any req/ack/nack it is during an event
-      (all t : TrainID_prime, sb : SwitchboxID_prime :-
-        cons_events_comm(reserveNextEvent, reserveNextNextEvent, switchLockEvent, ack[sb], nack[sb], req[t])),
-
-      -- train only requests to reserve its next segment
-      (all t : TrainID_prime, sb : SwitchboxID_prime, i : RouteIndexFromOne :-
-        (i = index[t] /\ (reserveNextEvent \/ reserveNextNextEvent) /\ (req[t] ~= sb_none \/ ack[sb] = t \/ nack[sb] = t)) => reqSeg = route[t][i]),
-
-      -- during a switchlock event, the requested connection must correspond to the requesting train's next desired connection
-      (all t : TrainID_prime, i : RouteIndexFromOne, sb : SwitchboxID_prime :-
-        (i = index[t] /\ switchLockEvent /\ sb = nextSb[t] /\ (req[t] ~= sb_none \/ ack[sb] = t \/ nack[sb] = t)) =>
-	  cons_req_conn_conn(reqConn[0], reqConn[1], route[t][i - 1], route[t][i])),
-
-      -- if the train has sent a reserve next request or received an ack/nack, then at least one of its next reservations are empty
-      (all t : TrainID_prime, sb : SwitchboxID_prime :-
-        (reserveNextEvent /\ (req[t] ~= sb_none \/ ack[sb] = t \/ nack[sb] = t)) => (tNextSbRes[t][0] = seg_none \/ tNextSbRes[t][1] = seg_none)),
-	
-      -- if the train has sent a reserve next next request or received an ack/nack, then its next next reservation is empty
-      (all t : TrainID_prime, sb : SwitchboxID_prime :-
-        (reserveNextNextEvent /\ (req[t] ~= sb_none \/ ack[sb] = t \/ nack[sb] = t)) => tNextNextSbRes[t] = seg_none),
-
-      -- if the train has sent a switch lock request or received an ack/nack, then its lock is empty and it has three reservations
-      (all t : TrainID_prime, sb : SwitchboxID_prime :-
-        (switchLockEvent /\ (req[t] ~= sb_none \/ ack[sb] = t \/ nack[sb] = t)) =>
-	  (~tNextLocked[t] /\ tNextSbRes[t][0] ~= seg_none /\ tNextSbRes[t][1] ~= seg_none /\ tNextNextSbRes[t] ~= seg_none)),
-
-      -- if a switchbox has acknowledged a reservation, then it has indeed made the reservation for that train
-      (all sb : SwitchboxID_prime, t : TrainID_prime, i : SbIndex :-
-        (ack[sb] = t /\ (reserveNextEvent \/ reserveNextNextEvent) /\ sbSegments[sb][i] = reqSeg) => sbReservations[sb][i] = t),
-
-      -- if a switchbox has acknowledged a lock, then it has indeed made the lock for that train and changed the connection to the requested
-      (all sb : SwitchboxID_prime, t : TrainID_prime :-
-        (ack[sb] = t /\ switchLockEvent) => (sbLock[sb] = t /\ ((sbConnection[sb][0] = reqConn[0] /\ sbConnection[sb][1] = reqConn[1]) \/
-		     			    		        (sbConnection[sb][0] = reqConn[1] /\ sbConnection[sb][1] = reqConn[0])))),
-
-      -- if a train has reached the end of its route, then no ongoing events with that train
-      (all t : TrainID_prime, sb : SwitchboxID_prime, i : RouteIndexFromOne :-
-        (i = index[t] /\ route[t][i] = seg_none) => (ack[sb] ~= t /\ nack[sb] ~= t /\ req[t] = sb_none)),
-
-      -- ack and nack never equal unless they are t_none
-      (all sb : SwitchboxID_prime :- (ack[sb] ~= t_none \/ nack[sb] ~= t_none) => ack[sb] ~= nack[sb]),
-
-      -- if a switchbox has a lock, then the train has the lock as well, or the switchbox has sent an acknowlegement to that train
-      -- during a switchlock event (the only time a switchbox can have a lock without the train having it as well)
-      (all sb : SwitchboxID_prime, t : TrainID_prime :-
-        sbLock[sb] = t => (sb = nextSb[t] /\ (tNextLocked[t] \/ (switchLockEvent /\ ack[sb] = t)))),
-
-      -- if a switchbox has a reservation, then the train has the reservation as well, or the switchbox has sent an acknowlegement to that train during a
-      -- reservation event (the only time a switchbox can have a reservation without the train having it as well)
-      (all sb : SwitchboxID_prime, t : TrainID_prime, i : SbIndex, ti : RouteIndexFromOne :-
-        (sbReservations[sb][i] = t /\ ti = index[t]) =>
-	  ((sb = nextSb[t] /\ ((tNextSbRes[t][0] = sbSegments[sb][i] \/ (reserveNextEvent /\ ack[sb] = t)) \/
-	       	 	       (tNextSbRes[t][1] = sbSegments[sb][i] \/ (reserveNextEvent /\ ack[sb] = t)))) \/
-	   (sb = switchboxes[t][ti] /\ (tNextNextSbRes[t] = sbSegments[sb][i] \/ (reserveNextNextEvent /\ ack[sb] = t))))),
-
-      -- if a switchbox has a reservation for a train, then the reserved segment is the current or the next segment of the train's route
-      (all sb : SwitchboxID_prime, t : TrainID_prime, i : SbIndex, ti : RouteIndexFromOne :-
-        (sbReservations[sb][i] = t /\ ti = index[t]) => (sbSegments[sb][i] = route[t][ti - 1] \/ sbSegments[sb][i] = route[t][ti]))
 
     transition_rules
       /* TRANSITION SYSTEM RULES */
@@ -781,4 +673,113 @@ scheme OneStation =
     		         G(no_collide(hdPos[tid1], tlPos[tid1], hdPos[tid2], tlPos[tid2]))),
     [no_derail] TS |- (all t : TrainID_prime, sb : SwitchboxID_prime :-
     		        G(sb = nextSb[t] => no_derail(hdPos[t], tlPos[t], sbConnection[sb])))
+
+    strengthening_invariants
+      /* STRENGTHENING INVARIANTS */
+      -- the train has at least the reservations necessary for its position
+      (all t : TrainID_prime :- cons_res_pos(tNextSbRes[t], tNextNextSbRes[t], hdPos[t], tlPos[t])),
+
+     -- the next train reservations are consistent with the switchbox reservation (train never has a reservation that the switchbox does not)
+      (all t : TrainID_prime, sb : SwitchboxID_prime, idx : SbIndex :-
+        sb = nextSb[t] => cons_nextres_t_sb(t, tNextSbRes[t], sbReservations[sb], sbSegments[sb], idx, reserveNextEvent)),
+
+     -- the next next train reservation is consistent with the switchbox reservation
+      (all t : TrainID_prime, sb : SwitchboxID_prime, i : RouteIndexOneLess, idx : SbIndex :-
+        (i = index[t] /\ sb = switchboxes[t][i]) => cons_nextnextres_t_sb(t, tNextNextSbRes[t], sbReservations[sb], sbSegments[sb], idx, reserveNextNextEvent)),
+
+      -- the train has its necessary locks (only if it is in a double position)
+      (all t : TrainID_prime :- cons_locks_pos(tNextLocked[t], hdPos[t], tlPos[t])),
+
+      -- the train's position is consistent with the segments of the route
+      (all t : TrainID_prime, i : RouteIndexFromOne :-
+        i = index[t] => cons_pos_route(hdPos[t], tlPos[t], route[t], i)),
+
+      -- the current connection at a switchbox is consistent with the segments that switchbox is responsible for 
+      (all sb : SwitchboxID_prime :- cons_connection_segments(sbSegments[sb], sbConnection[sb])),
+
+      -- the train's next switchbox is consistent with the index and the switchboxes
+      (all t : TrainID_prime, i : RouteIndexFromOne :-
+        i = index[t] => cons_nextsb_index(nextSb[t], switchboxes[t], i)),
+
+      -- sb locks are consistent with train locks
+      (all t : TrainID_prime, sb : SwitchboxID_prime :- sb = nextSb[t] => cons_locks(tNextLocked[t], t, sbLock[sb])), -- could be strengthened
+
+      -- max one ack/nack/req true at any time
+      (all swb1, swb2 : SwitchboxID_prime, tr1, tr2 : TrainID_prime :-
+        (swb2 ~= swb1 /\ tr1 ~= tr2) => cons_ack_and_nack(ack[swb1], ack[swb2], nack[swb1], nack[swb2], req[tr1], req[tr2])),
+
+      -- when a train has a lock then the next sb is locked in the correct connection
+      (all t : TrainID_prime, sb : SwitchboxID_prime, i : RouteIndexFromOne :-
+        (sb = nextSb[t] /\ i = index[t]) => cons_lock_conn(tNextLocked[t], sbConnection[sb], route[t], i)),
+
+      -- end switchbox never locked
+      (all sb : SwitchboxID_prime :- end_sb_cannot_lock(sbLock[sb], sbSegments[sb])),
+
+      -- during reserve next event or switchlock event, only requests to and ack/nack from the train's next sb
+      (all t : TrainID_prime, sb : SwitchboxID_prime :-
+        (reserveNextEvent \/ switchLockEvent) => cons_nextresevent_comm(t, sb, req[t], ack[sb], nack[sb], nextSb[t])),
+
+      -- during reserve next next event, only requests to and ack/nack from the train's next next sb
+      (all t : TrainID_prime, sb : SwitchboxID_prime, i : RouteIndexFromOne :-
+        (reserveNextNextEvent /\ i = index[t] /\ switchboxes[t][i] ~= sb_none) =>
+	  cons_nextresevent_comm(t, sb, req[t], ack[sb], nack[sb], switchboxes[t][i])),
+
+      -- if there are any req/ack/nack it is during an event
+      (all t : TrainID_prime, sb : SwitchboxID_prime :-
+        cons_events_comm(reserveNextEvent, reserveNextNextEvent, switchLockEvent, ack[sb], nack[sb], req[t])),
+
+      -- train only requests to reserve its next segment
+      (all t : TrainID_prime, sb : SwitchboxID_prime, i : RouteIndexFromOne :-
+        (i = index[t] /\ (reserveNextEvent \/ reserveNextNextEvent) /\ (req[t] ~= sb_none \/ ack[sb] = t \/ nack[sb] = t)) => reqSeg = route[t][i]),
+
+      -- during a switchlock event, the requested connection must correspond to the requesting train's next desired connection
+      (all t : TrainID_prime, i : RouteIndexFromOne, sb : SwitchboxID_prime :-
+        (i = index[t] /\ switchLockEvent /\ sb = nextSb[t] /\ (req[t] ~= sb_none \/ ack[sb] = t \/ nack[sb] = t)) =>
+	  cons_req_conn_conn(reqConn[0], reqConn[1], route[t][i - 1], route[t][i])),
+
+      -- if the train has sent a reserve next request or received an ack/nack, then at least one of its next reservations are empty
+      (all t : TrainID_prime, sb : SwitchboxID_prime :-
+        (reserveNextEvent /\ (req[t] ~= sb_none \/ ack[sb] = t \/ nack[sb] = t)) => (tNextSbRes[t][0] = seg_none \/ tNextSbRes[t][1] = seg_none)),
+	
+      -- if the train has sent a reserve next next request or received an ack/nack, then its next next reservation is empty
+      (all t : TrainID_prime, sb : SwitchboxID_prime :-
+        (reserveNextNextEvent /\ (req[t] ~= sb_none \/ ack[sb] = t \/ nack[sb] = t)) => tNextNextSbRes[t] = seg_none),
+
+      -- if the train has sent a switch lock request or received an ack/nack, then its lock is empty and it has three reservations
+      (all t : TrainID_prime, sb : SwitchboxID_prime :-
+        (switchLockEvent /\ (req[t] ~= sb_none \/ ack[sb] = t \/ nack[sb] = t)) =>
+	  (~tNextLocked[t] /\ tNextSbRes[t][0] ~= seg_none /\ tNextSbRes[t][1] ~= seg_none /\ tNextNextSbRes[t] ~= seg_none)),
+
+      -- if a switchbox has acknowledged a reservation, then it has indeed made the reservation for that train
+      (all sb : SwitchboxID_prime, t : TrainID_prime, i : SbIndex :-
+        (ack[sb] = t /\ (reserveNextEvent \/ reserveNextNextEvent) /\ sbSegments[sb][i] = reqSeg) => sbReservations[sb][i] = t),
+
+      -- if a switchbox has acknowledged a lock, then it has indeed made the lock for that train and changed the connection to the requested
+      (all sb : SwitchboxID_prime, t : TrainID_prime :-
+        (ack[sb] = t /\ switchLockEvent) => (sbLock[sb] = t /\ ((sbConnection[sb][0] = reqConn[0] /\ sbConnection[sb][1] = reqConn[1]) \/
+		     			    		        (sbConnection[sb][0] = reqConn[1] /\ sbConnection[sb][1] = reqConn[0])))),
+
+      -- if a train has reached the end of its route, then no ongoing events with that train
+      (all t : TrainID_prime, sb : SwitchboxID_prime, i : RouteIndexFromOne :-
+        (i = index[t] /\ route[t][i] = seg_none) => (ack[sb] ~= t /\ nack[sb] ~= t /\ req[t] = sb_none)),
+
+      -- ack and nack never equal unless they are t_none
+      (all sb : SwitchboxID_prime :- (ack[sb] ~= t_none \/ nack[sb] ~= t_none) => ack[sb] ~= nack[sb]),
+
+      -- if a switchbox has a lock, then the train has the lock as well, or the switchbox has sent an acknowlegement to that train
+      -- during a switchlock event (the only time a switchbox can have a lock without the train having it as well)
+      (all sb : SwitchboxID_prime, t : TrainID_prime :-
+        sbLock[sb] = t => (sb = nextSb[t] /\ (tNextLocked[t] \/ (switchLockEvent /\ ack[sb] = t)))),
+
+      -- if a switchbox has a reservation, then the train has the reservation as well, or the switchbox has sent an acknowlegement to that train during a
+      -- reservation event (the only time a switchbox can have a reservation without the train having it as well)
+      (all sb : SwitchboxID_prime, t : TrainID_prime, i : SbIndex, ti : RouteIndexFromOne :-
+        (sbReservations[sb][i] = t /\ ti = index[t]) =>
+	  ((sb = nextSb[t] /\ ((tNextSbRes[t][0] = sbSegments[sb][i] \/ (reserveNextEvent /\ ack[sb] = t)) \/
+	       	 	       (tNextSbRes[t][1] = sbSegments[sb][i] \/ (reserveNextEvent /\ ack[sb] = t)))) \/
+	   (sb = switchboxes[t][ti] /\ (tNextNextSbRes[t] = sbSegments[sb][i] \/ (reserveNextNextEvent /\ ack[sb] = t))))),
+
+      -- if a switchbox has a reservation for a train, then the reserved segment is the current or the next segment of the train's route
+      (all sb : SwitchboxID_prime, t : TrainID_prime, i : SbIndex, ti : RouteIndexFromOne :-
+        (sbReservations[sb][i] = t /\ ti = index[t]) => (sbSegments[sb][i] = route[t][ti - 1] \/ sbSegments[sb][i] = route[t][ti]))
   end
