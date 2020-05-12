@@ -1,20 +1,29 @@
 scheme OneStation = 
   class
-    type 
+    type
+      /* TYPES FOR STATIC CONTROL COMPONENT DATA */
+      /* Train control computers */
       Route = array RouteIndex of SegmentID,
       Switchboxes = array RouteIndex of SwitchboxID,
+      /* Switchboxes */
+      SbSegments = array SbIndex of SegmentID,
+
+      /* TYPES FOR DYNAMIC CONTROL COMPONENT DATA */
+      /* Train control computers*/
       TNextSbReservation = array TwoIndex of SegmentID,
+      /* Switchboxes */
+      SbReservation = array SbIndex of TrainID,
+      Connection = array TwoIndex of SegmentID,
+      SensorState == active | passive,
+
+      /* INDEX TYPES */
+      SbIndex = {| i : Int :- i >= 0 /\ i < 3 |},
       RouteIndex = {| i : Int :- i >= 0 /\ i < 4 |},
       RouteIndexFromOne = {| i : Int :- i >=1 /\ i < 4 |},
       RouteIndexOneLess = {| i : Int :- i >=1 /\ i < 3 |},
       TwoIndex = {| i : Int :- i >= 0 /\ i < 2 |}, 
 
-      SbReservation = array SbIndex of TrainID,
-      SbSegments = array SbIndex of SegmentID,
-      Connection = array TwoIndex of SegmentID,
-      SensorState == active | passive,
-      SbIndex = {| i : Int :- i >= 0 /\ i < 3 |},
-
+      /* TYPES FOR NETWORK CONFIGURATION DATA */
       SegmentID_prime = {| s : SegmentID :- s ~= seg_none|},
       SegmentID == s1 | s2 | s3 | s4 | seg_none, 
       TrainID_prime = {| t : TrainID :- t ~= t_none |}, 
@@ -23,7 +32,7 @@ scheme OneStation =
       SwitchboxID == sb0 | sb1 | sb2 | sb3 | sb_none      
 
     value
-      /* GUARDS */
+      /* GUARD FUNCTIONS */
       t_can_move : Route >< Bool >< TNextSbReservation >< SegmentID >< RouteIndex -> Bool
       t_can_move(r, lock, nextSbRes, nextNextSbRes, idx) is
         -- next sb is locked.
@@ -89,7 +98,7 @@ scheme OneStation =
 	is_possible_conn(reqConn,sbSegs),
 
 
-      /* SAFETY */
+      /* SAFETY INVARIANT FUNCTIONS */
       no_collide : SegmentID >< SegmentID >< SegmentID >< SegmentID -> Bool
       no_collide(hdPos1, tlPos1, hdPos2, tlPos2) is 
 	hdPos1 ~= hdPos2 /\
@@ -102,7 +111,7 @@ scheme OneStation =
         hdPos ~= tlPos =>
 	((conn[0] = hdPos /\ conn[1] = tlPos) \/ conn[1] = hdPos /\ conn[0] = tlPos), 
 
-      /* AUXILIARY */
+      /* AUXILIARY FUNCTIONS */
       	 
       is_possible_conn : Connection >< SbSegments -> Bool
       is_possible_conn(conn, segs) is
@@ -110,7 +119,7 @@ scheme OneStation =
 	(conn[1] = segs[0] /\ (conn[0] = segs[1] \/ conn[0] = segs[2])),
 
 
-      /* CONSISTENCY, FOR INVARIANTS */
+      /* STRENGTHENING INVARIANT FUNCTIONS */
       cons_res_pos : TNextSbReservation >< SegmentID ><SegmentID >< SegmentID -> Bool
       cons_res_pos(nextres, nextnextres, hdpos, tlpos) is
         (hdpos = tlpos /\ nextres[0] = hdpos) \/
@@ -255,6 +264,7 @@ scheme OneStation =
       (rqConn1 = curPos /\ rqConn0 = nextPos)
       
   value
+    /* VALUES (CONSTANTS) FOR STATIC CONTROL COMPONENT DATA */
      -- The train route. 
     route[t : TrainID_prime] : Route,			-- array RouteIndex of SegmentID
     -- The switchboxes along the train route.
@@ -263,6 +273,7 @@ scheme OneStation =
     -- The segments associated with each switchbox. Index 0 = stem, 1 = plus, 2 = minus. 
     sbSegments[ sb : SwitchboxID_prime] : SbSegments	-- array SbIndex of SegmentID
   axiom
+   /* CONFIGURATION OF STATIC CONTROL COMPONENT DATA */
    route[t1] = {. s1, s2, s4, seg_none .},
    route[t2] = {. s4, s3, s1, seg_none .},
    switchboxes[t1] = {. sb1, sb2, sb3, sb_none .},
@@ -274,6 +285,7 @@ scheme OneStation =
   transition_system
     [TS]
     variable
+      /* VARIABLES FOR DYNAMIC CONTROL COMPONENT DATA */
       -- Head and tail positions of the train.
       hdPos[t : TrainID_prime] : SegmentID,
       tlPos[t : TrainID_prime] : SegmentID,
@@ -311,6 +323,7 @@ scheme OneStation =
       -- The lock of each switchbox. 
       sbLock[s : SwitchboxID_prime] : TrainID,
 
+      /* INTERFACE AND COMMUNICATION VARIABLES */
       reserveNextEvent : Bool := false,
       reserveNextNextEvent : Bool := false,
       switchLockEvent : Bool := false,
@@ -323,6 +336,7 @@ scheme OneStation =
       nack[sb : SwitchboxID_prime] : TrainID
  
     init_constraint
+      /* CONFIGURATION OF DYNAMIC CONTROL COMPONENT DATA AND COMMUNICATION VARIABLES */
       hdPos[t1] = s1 /\
       tlPos[t1] = s1 /\
       hdPos[t2] = s4 /\
@@ -367,6 +381,7 @@ scheme OneStation =
       (all sb : SwitchboxID_prime :- ack[sb] = t_none) /\
       (all sb : SwitchboxID_prime :- nack[sb] = t_none)
     strengthening_invariants
+      /* STRENGTHENING INVARIANTS */
       -- the train has at least the reservations necessary for its position
       (all t : TrainID_prime :- cons_res_pos(tNextSbRes[t], tNextNextSbRes[t], hdPos[t], tlPos[t])),
 
@@ -475,6 +490,7 @@ scheme OneStation =
         (sbReservations[sb][i] = t /\ ti = index[t]) => (sbSegments[sb][i] = route[t][ti - 1] \/ sbSegments[sb][i] = route[t][ti]))
 
     transition_rules
+      /* TRANSITION SYSTEM RULES */
       Reserve [=] Lock [=] Move
       
       where 
@@ -760,7 +776,7 @@ scheme OneStation =
     end
 
     ltl_assertion
-    -- SAFETY
+    /* LTL ASSERTIONS */
     [no_collide]       TS |- (all distinct tid1, tid2 : TrainID_prime :-
     		         G(no_collide(hdPos[tid1], tlPos[tid1], hdPos[tid2], tlPos[tid2]))),
     [no_derail] TS |- (all t : TrainID_prime, sb : SwitchboxID_prime :-
